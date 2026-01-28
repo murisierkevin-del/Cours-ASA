@@ -6,13 +6,13 @@
   "cards": [
     {
       "id": "q001",
-      "q": "Quelle est la distance en m/s à 50km/h ?",
-      "a": "%10 x 3 = 50/10 x 3 = 15m/s"
+      "q": "Quelle est la distance de reaction en m à 50km/h ?",
+      "a": "%10 x 3 = 50/10 x 3 = 15m"
     },
     {
       "id": "q002",
       "q": "-quels sont les 4 modules de la sensibilisation ?",
-      "a": "Réponse manquante — à compléter dans le fichier Word."
+      "a": "1 voir dans la circulation 2 l'environnement et la circulation 3 dynamique de circulation 3 tactique de circulation."
     },
     {
       "id": "q003",
