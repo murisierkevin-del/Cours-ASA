@@ -8,9 +8,9 @@
       "file": "themes/sensibilisation.json"
     },
     {
-  "id": "physique-automobile",
-  "name": "Physique automobile",
-  "file": "themes/physique-automobile.json"
-}
+      "id": "physique-automobile",
+      "name": "Physique automobile",
+      "file": "themes/physique-automobile.json"
+    }
   ]
 }
