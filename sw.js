@@ -7,7 +7,8 @@ const ASSETS = [
   "./icon-192.png",
   "./icon-512.png",
   "./themes/index.json",
-  "./themes/sensibilisation.json"
+  "./themes/sensibilisation.json",
+  "./themes/physique-automobile.json"
 ];
 
 self.addEventListener("install", (event) => {
