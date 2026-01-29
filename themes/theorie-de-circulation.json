@@ -290,7 +290,7 @@
     {
       "id": "q058",
       "q": "Quels est la meilleure façon de freiner ?",
-      "a": "Dégressif"
+      "a": "Dégressif, car on diminue la vitesse résiduelle en cas de choc"
     },
     {
       "id": "q059",
@@ -355,7 +355,7 @@
     {
       "id": "q071",
       "q": "Taux d’alcool qui détériore de façon marquée les facultés de conduite ?",
-      "a": "0,80/00"
+      "a": "0,8 pour mille"
     },
     {
       "id": "q072",
@@ -365,7 +365,7 @@
     {
       "id": "q073",
       "q": "Comment éliminer l’alcool ?",
-      "a": ". Par la respiration et la transpiration. 0,1 pour 1000 chaque heure"
+      "a": ". Par la respiration et la transpiration. 0,1 pour mille chaque heure"
     },
     {
       "id": "q074",
@@ -394,7 +394,7 @@
     },
     {
       "id": "q079",
-      "q": "Les 10 règles tactiques pour une conduite préventive.",
+      "q": "quelles sont les 10 règles tactiques pour une conduite préventive.",
       "a": "Maintenir la distance de sécurité – Respecter : ne pas circuler trop près des autres.\nPrenez vos distances, ne pas rester longtemps proche des autres lorsque cela est inutile.\nManœuvrez de manière réfléchie\nIndiquez clairement vos intentions\nTolérez les erreurs des autres\nConduire de manière respectueuse – Se préparer : ne jamais rester au milieu de la route lorsque cela est inutile.\nRendez-vous visible\nAttendez-vous à des imprévus\nSoyez conscient de vos limites\nPrévoyez des réserves"
     },
     {
