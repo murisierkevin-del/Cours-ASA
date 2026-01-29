@@ -10,12 +10,7 @@
     {
       "id": "q002",
       "q": "Que veut dire A-A-I ?",
-      "a": "A = AGE (3 catégories 1 à 18 ans, 18 à 60 ans et 60+)"
-    },
-    {
-      "id": "q003",
-      "q": "A = ATTENTION (le partenaire fait-il attention à vous ? vous a-t-il vu ?",
-      "a": "I = INTENTION (sait-on clairement ce que le partenaire va faire ?)"
+      "a": "A = AGE (3 catégories 1 à 18 ans, 18 à 60 ans et 60+) A = ATTENTION (le partenaire fait-il attention à vous, vous a-t-il vu ? I = INTENTION (sait-on clairement ce que le partenaire va faire ?"
     },
     {
       "id": "q004",
@@ -290,7 +285,7 @@
     {
       "id": "q058",
       "q": "Quels est la meilleure façon de freiner ?",
-      "a": "Dégressif"
+      "a": "Dégressif, pour avoir une vitessse résiduel plus basse en cas de choc"
     },
     {
       "id": "q059",
@@ -395,7 +390,7 @@
     {
       "id": "q079",
       "q": "Quels sont les règles de l’Eco drive ?",
-      "a": "Rapport élevé et Régime le plus bas\nAccélérer franchement\nPasser rapidement à la vitesse supérieure et rétrograder tard.\nRouler en anticipant, éviter de freiner ou accélérer inutilement\n\nLes 10 règles tactiques pour une conduite préventive.\n\nMaintenir la distance de sécurité – Respecter : ne pas circuler trop près des autres.\nPrenez vos distances, ne pas rester longtemps proche des autres lorsque cela est inutile.\nManœuvrez de manière réfléchie\nIndiquez clairement vos intentions\nTolérez les erreurs des autres\nConduire de manière respectueuse – Se préparer : ne jamais rester au milieu de la route lorsque cela est inutile.\nRendez-vous visible\nAttendez-vous à des imprévus\nSoyez conscient de vos limites\nPrévoyez des réserves"
+      "a": "Rapport élevé et Régime le plus bas\nAccélérer franchement\nPasser rapidement à la vitesse supérieure et rétrograder tard.\nRouler en anticipant, éviter de freiner ou accélérer inutilement"
     },
     {
       "id": "q080",
