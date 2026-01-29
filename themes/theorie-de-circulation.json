@@ -406,6 +406,11 @@
       "id": "q081",
       "q": "Qui est responsable de la sécurité routière ?",
       "a": "TOUS LES USAGERS DE LA ROUTE\nPour devenir un bon conducteur, vous devez particulièrement être capable de reconnaître les situations potentiellement dangereuses, avant même qu’elles ne le deviennent vraiment !"
+    },
+    {
+      "id": "q082",
+      "q": "Quels sont Les 10 règles tactiques pour une conduite préventive ?",
+      "a": "Maintenir la distance de sécurité – Respecter : ne pas circuler trop près des autres.\nPrenez vos distances, ne pas rester longtemps proche des autres lorsque cela est inutile.\nManœuvrez de manière réfléchie\nIndiquez clairement vos intentions\nTolérez les erreurs des autres\nConduire de manière respectueuse – Se préparer : ne jamais rester au milieu de la route lorsque cela est inutile.\nRendez-vous visible\nAttendez-vous à des imprévus\nSoyez conscient de vos limites\nPrévoyez des réserves"
     }
   ]
 }
