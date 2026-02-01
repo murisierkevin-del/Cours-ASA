@@ -1,0 +1,191 @@
+{
+  "id": "rc",
+  "name": "RC (LCR / OAV / CO)",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "Qui est civilement responsable lorsqu’un dommage est causé par l’emploi d’un véhicule automobile ?",
+      "a": "Le détenteur du véhicule"
+    },
+    {
+      "id": "q002",
+      "q": "Dans quels cas le détenteur peut-il être responsable même si le véhicule n’est pas à l’emploi ?",
+      "a": "Lorsque le lésé prouve une faute du détenteur, ou une défectuosité du véhicule."
+    },
+    {
+      "id": "q003",
+      "q": "Dans quels cas le détenteur peut-il être libéré de sa responsabilité civile ?",
+      "a": "En cas de force majeure ou à la faute grave du lésé ou d’un tiers, sans faute de sa part ni défaut du véhicule."
+    },
+    {
+      "id": "q004",
+      "q": "Comment est réparti le dommage lorsqu’il y a plusieurs responsables ?",
+      "a": "Le dommage est réparti entre les responsables selon la faute ou les circonstances."
+    },
+    {
+      "id": "q005",
+      "q": "Comment est réglée la responsabilité entre détenteurs de véhicules automobiles ?",
+      "a": "Les lésions corporelles sont réparties selon la faute ; les dommages matériels ne sont dus que si une faute, une incapacité ou un défaut est prouvé."
+    },
+    {
+      "id": "q006",
+      "q": "Quelles règles s’appliquent à la réparation du dommage et à la réparation morale ?",
+      "a": "Les principes du Code des obligations concernant les actes illicites s’appliquent."
+    },
+    {
+      "id": "q007",
+      "q": "Un véhicule peut-il être mis en circulation sans assurance ?",
+      "a": "Non, sans RC"
+    },
+    {
+      "id": "q008",
+      "q": "Qui peut être exclu de la couverture de l’assurance responsabilité civile ?",
+      "a": "Certaines prétentions du détenteur, de proches vivant en ménage commun, ou en cas de courses de vitesse assurées séparément."
+    },
+    {
+      "id": "q009",
+      "q": "Que signifie le droit d’action directe contre l’assureur ?",
+      "a": "Le lésé peut agir directement contre l’assureur dans la limite de la couverture, sans que les exceptions contractuelles lui soient opposables."
+    },
+    {
+      "id": "q010",
+      "q": "Que se passe-t-il lorsque plusieurs lésés dépassent la garantie d’assurance ?",
+      "a": "Les indemnités sont réduites proportionnellement pour chaque lésé jusqu’à concurrence de la garantie."
+    },
+    {
+      "id": "q011",
+      "q": "Que devient l’assurance en cas de changement de détenteur du véhicule ?",
+      "a": "Les droits et obligations passent au nouveau détenteur, sauf si une nouvelle assurance est conclue."
+    },
+    {
+      "id": "q012",
+      "q": "Quel est le rôle de l’attestation d’assurance ?",
+      "a": "Elle permet à l’autorité de délivrer le permis de circulation et les plaques de contrôle."
+    },
+    {
+      "id": "q013",
+      "q": "Quand les effets de l’assurance sont-ils suspendus ?",
+      "a": "Lorsque les plaques de contrôle sont déposées auprès de l’autorité compétente."
+    },
+    {
+      "id": "q014",
+      "q": "Quel droit possède l’assuré concernant les sinistres causés ?",
+      "a": "Il peut demander une déclaration des sinistres causés ou de l’absence de sinistre, remise dans les quinze jours."
+    },
+    {
+      "id": "q015",
+      "q": "Qui est responsable des dommages causés par une remorque ou un véhicule automobile remorqué ?",
+      "a": "Le détenteur du véhicule tracteur est responsable ; si le véhicule remorqué est conduit par une personne, les deux détenteurs sont  responsables."
+    },
+    {
+      "id": "q016",
+      "q": "Quelle assurance couvre les dommages causés par une remorque ?",
+      "a": "L’assurance du véhicule tracteur"
+    },
+    {
+      "id": "q017",
+      "q": "Quelle règle s’applique à la responsabilité civile des cyclistes ?",
+      "a": "le Code des obligations."
+    },
+    {
+      "id": "q018",
+      "q": "Qui est responsable lorsqu’un véhicule est confié à une entreprise de la branche automobile ?",
+      "a": "L’exploitant de l’entreprise"
+    },
+    {
+      "id": "q019",
+      "q": "La Confédération et les cantons sont-ils soumis à l’assurance obligatoire ?",
+      "a": "Ils sont soumis à la RC mais pas à l’obligation de s’assurer ; ils s’auto-assurent et règlent eux-mêmes les sinistres"
+    },
+    {
+      "id": "q020",
+      "q": "Quel est le rôle du Bureau national d’assurance ?",
+      "a": "Il couvre les dommages causés par des véhicules automobiles ou des remorques non identifiés ou non assurés"
+    },
+    {
+      "id": "q021",
+      "q": "Qui est responsable civilement en cas d’utilisation d’un véhicule soustrait ?",
+      "a": "La personne qui a soustrait le véhicule assume la responsabilité civile d’un détenteur."
+    },
+    {
+      "id": "q022",
+      "q": "Quel est le rôle du Fonds national de garantie ?",
+      "a": "Il indemnise les dommages causés par des véhicules non assurés ou non identifiés."
+    },
+    {
+      "id": "q023",
+      "q": "Comment est financé le Fonds national de garantie ?",
+      "a": "Par des contributions annuelles perçues avec les primes d’assurance responsabilité civile."
+    },
+    {
+      "id": "q024",
+      "q": "Quand le canton engage-t-il sa responsabilité pour un véhicule non assuré ?",
+      "a": "Lorsqu’il délivre ou ne retire pas des plaques sans assurance valable."
+    },
+    {
+      "id": "q025",
+      "q": "Quel est le rôle de l’organisme d’information ?",
+      "a": "Il fournit aux lésés les informations nécessaires pour faire valoir leurs droits à indemnisation."
+    },
+    {
+      "id": "q026",
+      "q": "Quel délai s’applique au règlement des sinistres par l’assureur ?",
+      "a": "L’assureur doit répondre dans un délai de trois mois à compter de la demande chiffrée."
+    },
+    {
+      "id": "q027",
+      "q": "Dans quels cas le lésé peut-il s’adresser à l’organisme d’indemnisation ?",
+      "a": "Lorsque l’assureur ou son représentant ne répond pas dans les délais ou n’est pas identifiable."
+    },
+    {
+      "id": "q028",
+      "q": "Quel est le montant minimal de couverture de l’assurance responsabilité civile automobile par événement ?",
+      "a": "Minimum 5 millions de francs pour les dommages corporels et matériels."
+    },
+    {
+      "id": "q029",
+      "q": "Quel est le montant minimal de couverture pour une voiture automobile ou un train routier aménagé pour transporter de 10 à 50 personnes ?",
+      "a": "Minimum 10 millions de francs"
+    },
+    {
+      "id": "q030",
+      "q": "Quel est le montant minimal de couverture pour un véhicule aménagé pour transporter plus de 50 personnes ?",
+      "a": "Minimum 20 millions de francs par événement."
+    },
+    {
+      "id": "q031",
+      "q": "Dans quels cas une nouvelle attestation d’assurance doit-elle être remise à l’autorité ?",
+      "a": "Changement de détenteur\nTransfert du lieu de stationnement dans un autre canton\nRestitution des plaques de contrôle à l’autorité compétente\nAnnonce par l’assureur de la suspension ou de la cessation de l’assurance\nChangement du numéro de plaques"
+    },
+    {
+      "id": "q032",
+      "q": "Quelle est la garantie minimale d’assurance pour les véhicules automobiles et les trains routiers transportant des marchandises dangereuses ?",
+      "a": "Minimum 15 millions de francs"
+    },
+    {
+      "id": "q033",
+      "q": "Quelle est la garantie minimale applicable aux cyclomoteurs (e-bike jusqu’à 500 W et 45 km/h) et quel régime de responsabilité leur est applicable ?",
+      "a": "Minimum 2 millions de francs avec plaques jaunes avec vignette et leur RC est régie par le Code des obligations."
+    },
+    {
+      "id": "q034",
+      "q": "Quelle est la situation en matière d’assurance et de responsabilité pour les cyclomoteurs légers, trottinettes électriques, voitures à bras et fauteuils roulants jusqu’à 10 km/h ?",
+      "a": "Il n’existe pas d’obligation d’assurance responsabilité civile automobile ; la couverture doit être prévue dans la responsabilité civile privée et la responsabilité est régie par le Code des obligations."
+    },
+    {
+      "id": "q035",
+      "q": "Expliquez la différence entre responsabilité causale simple et responsabilité causale aggravée ?",
+      "a": "La principale différence réside dans l’intention et la gravité de la faute. La responsabilité civile simple couvre les négligences ordinaires, tandis que la responsabilité civile aggravée concerne les fautes graves ou intentionnelles."
+    },
+    {
+      "id": "q036",
+      "q": "Citer des Exemples de responsabilité civile aggravée ?",
+      "a": "Conduite en état d’ivresse : Vous provoquez un accident sous l’influence de l’alcool.\nVandalisme : Vous endommagez intentionnellement la propriété d’autrui.\nNégligence grave : Vous omettez de prendre des mesures de sécurité essentielles."
+    },
+    {
+      "id": "q037",
+      "q": "Citer des Exemples de responsabilité civile simple ?",
+      "a": "Accidents domestiques : Vous renversez du vin sur le tapis d’un ami.\nAccidents de voiture : Vous heurtez accidentellement un autre véhicule.\nAccidents sportifs : Vous blessez quelqu’un en jouant au football."
+    }
+  ]
+}
