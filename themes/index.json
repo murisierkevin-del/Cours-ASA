@@ -7,6 +7,11 @@
   "name": "Théorie de circulation",
   "file": "themes/theorie-de-circulation.json"
 },
+     {
+  "id": "RC",
+  "name": "RC",
+  "file": "themes/RC.json"
+},
     {
       "id": "physique-automobile",
       "name": "Physique automobile",
