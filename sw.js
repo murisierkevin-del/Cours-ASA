@@ -1,4 +1,4 @@
-const CACHE_NAME = "cours-asa-shell-v4";
+const CACHE_NAME = "cours-asa-shell-v5";
 const RUNTIME_CACHE = "cours-asa-runtime-v1";
 
 // On précache seulement le "shell" (le cœur de l'app)
