@@ -4,7 +4,7 @@
   "cards": [
     {
       "id": "q001",
-      "q": "A quoi sert la Méthode A-A-A(A-A-I) ?",
+      "q": "A quoi sert la Méthode A-A-I ?",
       "a": ""
     },
     {
@@ -15,12 +15,12 @@
     {
       "id": "q003",
       "q": "Que veut dire A-A-I ?",
-      "a": "A = AGE (3 catégories 1 à 18 ans, 18 à 60 ans et 60+)\nA = ATTENTION (le partenaire fait-il attention à vous ? vous a-t-il vu ?\nI = INTENTION (sait-on clairement ce que le partenaire va faire ?)"
+      "a": "A = AGE (3 catégories 1 à 18 ans, 18 à 60 ans et 60+)\nA = ATTENTION (le partenaire fait-il attention à vous, vous a-t-il vu \nI = INTENTION (sait-on clairement ce que le partenaire va faire )"
     },
     {
       "id": "q004",
       "q": "Qu’est-ce qu’un partenaire de la circulation ?",
-      "a": "C’est tout ce qui est mobile et qui utilise la route.\nDonc : les personnes, les véhicules et les animaux\nExemples : piétons, aveugle, vélo, moto, camion, chien, …."
+      "a": "C’est tout ce qui est mobile et qui utilise la route.\nDonc : les personnes, les véhicules et les animaux, les piétons, aveugle, vélo, moto, camion, chien, …."
     },
     {
       "id": "q005",
@@ -149,7 +149,7 @@
     },
     {
       "id": "q030",
-      "q": "Qu’est ce qui influence cette zone ?",
+      "q": "Qu’est ce qui influence la zone entre l'apparition du danger et le point de décision (dynomène) ?",
       "a": "L’anticipation et l’expérience"
     },
     {
@@ -234,7 +234,7 @@
     },
     {
       "id": "q047",
-      "q": "A quoi faire attention ?",
+      "q": "A quoi faire attention avec la vision?",
       "a": "Aux illusions d’optique"
     },
     {
@@ -335,12 +335,12 @@
     {
       "id": "q067",
       "q": "Pourquoi devons-nous adopter un comportement responsable ?",
-      "a": "Règle de confiance et du respect des autres usagers LCR art.26"
+      "a": "Parce que l'Art.26 de la LCR l'oblige"
     },
     {
       "id": "q068",
-      "q": "Quels sont les facteurs qui modifient nos aptitudes (long terme) et capacités (sur l’instant) à la conduite ?",
-      "a": "Etat de santé / médical (physique, psychique)\nBesoins physiologiques (faim, soif, pipi)\nDistractions (centres intérêts, musique, cigarettes, passagers, smartphone, …)\nEmotions (pressé, surmenage, préoccupations)\nFatigue (jour de la semaine, heure de la journée, qualité sommeil)\nAlcool\nDrogues\nMédicaments"
+      "q": "Quels sont les facteurs qui modifient nos aptitudes (long terme) à la conduite ?",
+      "a": "Etat de santé  physique, psychique (troubles psychiatriques) , les dépendances (alcool, droques)"
     },
     {
       "id": "q069",
@@ -406,6 +406,11 @@
       "id": "q081",
       "q": "Qui est responsable de la sécurité routière ?",
       "a": "TOUS LES USAGERS DE LA ROUTE\nPour devenir un bon conducteur, vous devez particulièrement être capable de reconnaître les situations potentiellement dangereuses, avant même qu’elles ne le deviennent vraiment !"
-    }
+    },
+    {
+      "id": "q082",
+      "q": "Quels sont les facteurs qui modifient nos capacités (court terme) à conduire ?",
+      "a": "Besoins physiologiques (faim, soif, pipi)/nDistractions (centres intérêts, musique, cigarettes, passagers, smartphone, …) /nEmotions (pressé, surmenage, préoccupations), /nFatigue (jour de la semaine, heure de la journée, qualité sommeil)/nAlcool, Drogues, Médicaments"
+    },
   ]
 }
