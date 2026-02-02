@@ -5,12 +5,12 @@
     {
       "id": "q001",
       "q": "A quoi sert la Méthode A-A-I ?",
-      "a": ""
+      "a": "permettre d'évaluer les partenaires/nLorsque l’un des éléments amène le doute…\nPasser du principe de confiance à celui de sécurité."
     },
     {
       "id": "q002",
-      "q": "C’est l’évaluation des partenaires",
-      "a": "Lorsque l’un des éléments amène le doute…\nPasser du principe de confiance à celui de sécurité."
+      "q": "",
+      "a": "."
     },
     {
       "id": "q003",
@@ -370,7 +370,7 @@
     {
       "id": "q074",
       "q": "Que provoque les différentes drogues ?",
-      "a": "Toutes les drogues provoquent l’altération de la vision et réaction plus lente\nCannabis : altère l’audition et la capacité de coordination\nL’ecstasy : provoque un état euphorique, sous-estimation des risques\nLa cocaïne : stimule et développe l’agressivité\nHéroïne et hallucinogènes : dangers les plus fort mais concernent assez peu les conducteurs, les consommateurs sont désocialisés et rarement motorisés"
+      "a": "l’altération de la vision et réaction plus lente\nCannabis : altère l’audition et la capacité de coordination\nL’ecstasy : provoque un état euphorique, sous-estimation des risques\nLa cocaïne : stimule et développe l’agressivité\nHéroïne et hallucinogènes : dangers les plus fort mais concernent assez peu les conducteurs, les consommateurs sont désocialisés et rarement motorisés"
     },
     {
       "id": "q075",
@@ -379,8 +379,8 @@
     },
     {
       "id": "q076",
-      "q": "Conséquence en cas d’accident ?",
-      "a": "Obligation dès le 1er janvier 2015: art. 65 al. 3 LCR\nSuite à une faute grave, l’assurance se retourne contre le responsable à hauteur de 30%"
+      "q": "",
+      "a": ""
     },
     {
       "id": "q077",
@@ -395,7 +395,7 @@
     {
       "id": "q079",
       "q": "quelles sont les 10 règles tactiques pour une conduite préventive.",
-      "a": "Maintenir la distance de sécurité – Respecter : ne pas circuler trop près des autres.\nPrenez vos distances, ne pas rester longtemps proche des autres lorsque cela est inutile.\nManœuvrez de manière réfléchie\nIndiquez clairement vos intentions\nTolérez les erreurs des autres\nConduire de manière respectueuse – Se préparer : ne jamais rester au milieu de la route lorsque cela est inutile.\nRendez-vous visible\nAttendez-vous à des imprévus\nSoyez conscient de vos limites\nPrévoyez des réserves"
+      "a": "Maintenir la distance de sécurité .\nPrenez vos distances.\nManœuvrez de manière réfléchie\nIndiquez clairement vos intentions\nTolérez les erreurs des autres\nConduire de manière respectueuse.\nRendez-vous visible\nAttendez-vous à des imprévus\nConnaitre ses limites\nPrévoyez des réserves"
     },
     {
       "id": "q080",
