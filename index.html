@@ -116,8 +116,8 @@ function render(){
 }
 
 function next(){
-  state.showAnswer=false;
-  currentIndex = Math.min(currentIndex+1, cards.length-1);
+  state.showAnswer = false;
+  currentIndex = (currentIndex + 1) % cards.length;
   render();
 }
 
