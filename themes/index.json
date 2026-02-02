@@ -16,11 +16,6 @@
       "id": "physique-automobile",
       "name": "Physique automobile",
       "file": "themes/physique-automobile.json"
-    },
-    {
-  "id": "electrotechnique",
-  "name": "electrotechnique",
-  "file": "themes/electrotechnique.json"
-}
+    }
   ]
 }
