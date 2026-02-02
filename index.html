@@ -150,14 +150,40 @@ fetch("themes/index.json", { cache:"no-store" })
   .catch(()=> offlineLabel.textContent = "erreur");
 
 async function loadTheme(id){
-  const t = THEMES_INDEX.themes.find(x=>x.id===id);
-  if(!t) return;
-  const r = await fetch(t.file, { cache:"no-store" });
-  const data = await r.json();
-  cards = data.cards.slice();
-  currentIndex = 0;
-  state.showAnswer=false;
-  render();
+  const t = THEMES_INDEX.themes.find(x => x.id === id);
+  if(!t){
+    qText.textContent = "Thème introuvable.";
+    cards = [];
+    render();
+    return;
+  }
+
+  try{
+    const r = await fetch(t.file, { cache:"no-store" });
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+
+    if(!data.cards || !Array.isArray(data.cards)) throw new Error("JSON invalide: cards manquant");
+
+    cards = data.cards.slice();
+    currentIndex = 0;
+    state.showAnswer = false;
+    render();
+  }catch(e){
+    cards = [];
+    currentIndex = 0;
+    state.showAnswer = false;
+    qText.textContent = `Erreur de chargement du thème: ${t.file}`;
+    aText.textContent = String(e);
+    aText.classList.remove("hidden");
+    aImg.classList.add("hidden");
+    qImg.classList.add("hidden");
+    showAnswerBtn.classList.add("hidden");
+    skipBtn.classList.add("hidden");
+    justeBtn.classList.add("hidden");
+    fauxBtn.classList.add("hidden");
+    statsLine.textContent = "—";
+  }
 }
 
 themeSelect.addEventListener("change", e=> loadTheme(e.target.value));
