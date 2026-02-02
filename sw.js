@@ -1,7 +1,6 @@
-const CACHE_NAME = "cours-asa-shell-v5";
-const RUNTIME_CACHE = "cours-asa-runtime-v1";
+const CACHE_NAME = "cours-asa-shell-v6";
+const RUNTIME_CACHE = "cours-asa-runtime-v2";
 
-// On précache seulement le "shell" (le cœur de l'app)
 const SHELL_ASSETS = [
   "./",
   "./index.html",
@@ -24,15 +23,14 @@ self.addEventListener("activate", (event) => {
       const keys = await caches.keys();
       await Promise.all(
         keys
-          .filter((k) => k !== CACHE_NAME && k !== RUNTIME_CACHE)
-          .map((k) => caches.delete(k))
+          .filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE)
+          .map(k => caches.delete(k))
       );
       await self.clients.claim();
     })()
   );
 });
 
-// Helper: cache-first (offline d'abord)
 async function cacheFirst(req) {
   const cached = await caches.match(req);
   if (cached) return cached;
@@ -42,17 +40,16 @@ async function cacheFirst(req) {
   return res;
 }
 
-// Helper: network-first (à jour si possible)
 async function networkFirst(req) {
   try {
     const res = await fetch(req);
     const cache = await caches.open(RUNTIME_CACHE);
     cache.put(req, res.clone());
     return res;
-  } catch (e) {
+  } catch {
     const cached = await caches.match(req);
     if (cached) return cached;
-    throw e;
+    throw new Error("Offline et non présent en cache");
   }
 }
 
@@ -61,22 +58,31 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
 
   const url = new URL(req.url);
-
-  // On gère seulement les requêtes du même site (ton github.io)
   if (url.origin !== self.location.origin) return;
 
-  // Toujours à jour pour la liste des thèmes
-  if (url.pathname.endsWith("/themes/index.json")) {
+  // 1) Toujours à jour : cœur de l’app
+  if (
+    url.pathname.endsWith("/") ||
+    url.pathname.endsWith("/index.html") ||
+    url.pathname.endsWith("/sw.js") ||
+    url.pathname.endsWith("/manifest.json")
+  ) {
     event.respondWith(networkFirst(req));
     return;
   }
 
-  // Thèmes JSON + images: cache dynamique (cache-first)
-  if (url.pathname.includes("/themes/") || url.pathname.includes("/images/")) {
+  // 2) Toujours à jour : TOUS les JSON de thèmes
+  if (url.pathname.startsWith("/Cours-ASA/themes/") && url.pathname.endsWith(".json")) {
+    event.respondWith(networkFirst(req));
+    return;
+  }
+
+  // 3) Images : cache-first
+  if (url.pathname.startsWith("/Cours-ASA/images/")) {
     event.respondWith(cacheFirst(req));
     return;
   }
 
-  // Le reste (shell / fichiers de base)
+  // 4) Le reste
   event.respondWith(cacheFirst(req));
 });
