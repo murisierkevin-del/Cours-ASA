@@ -7,6 +7,11 @@
   "name": "Théorie de circulation",
   "file": "themes/theorie-de-circulation.json"
 },
+    {
+  "id": "electrotechnique",
+  "name": "Electrotechnique",
+  "file": "themes/electrotechnique.json"
+},
      {
   "id": "rc",
   "name": "Responsabilité civile",
