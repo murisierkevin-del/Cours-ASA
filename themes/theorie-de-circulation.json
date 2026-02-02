@@ -340,7 +340,8 @@
     {
       "id": "q068",
       "q": "Quels sont les facteurs qui modifient nos aptitudes (long terme) à la conduite ?",
-      "a": "Etat de santé  physique, psychique (troubles psychiatriques) , les dépendances (alcool, droques)"
+      "a": "Etat de santé  physique, psychique (troubles psychiatriques) , les dépendances (alcool, droques)/nUne personne avec une très mauvaise vue non corrigée
+ Inapte à la conduite "
     },
     {
       "id": "q069",
@@ -410,7 +411,7 @@
     {
       "id": "q082",
       "q": "Quels sont les facteurs qui modifient nos capacités (court terme) à conduire ?",
-      "a": "Besoins physiologiques (faim, soif, pipi)/nDistractions (centres intérêts, musique, cigarettes, passagers, smartphone, …) /nEmotions (pressé, surmenage, préoccupations), /nFatigue (jour de la semaine, heure de la journée, qualité sommeil)/nAlcool, Drogues, Médicaments"
+      "a": "Besoins physiologiques (faim, soif, pipi)/nDistractions (centres intérêts, musique, cigarettes, passagers, smartphone, …) /nEmotions (pressé, surmenage, préoccupations), /nFatigue (jour de la semaine, heure de la journée, qualité sommeil)/nAlcool, Drogues, Médicaments./nUne personne en bonne santé mais avec 0,8 ‰ d’alcool est Apte, mais incapable de conduire à ce moment-là"
     },
   ]
 }
