@@ -85,7 +85,7 @@
     {
       "id": "q017",
       "q": "Dessinez le principe du schéma électrique d’un étage de puissance pour alimenter une phase d’une machine électrique.",
-      "a": "Dessinez le principe du schéma électrique d’un étage de puissance pour alimenter une phase d’une machine électrique.\nRéponse graphique attendue : schéma d’un demi-pont avec 4 interrupteurs de puissance avec sa diode de protection et bobine au centre",
+      "a": "",
       "img_answer": "images/schema-etage-puissance.png"
     },
     {
