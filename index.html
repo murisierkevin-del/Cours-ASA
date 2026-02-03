@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cours ASA – Révision</title>
+  <style>
+    :root{
+      --bg:#0f1220; --card:#171a2b; --txt:#e9ecff; --muted:#9aa3ff;
+      --good:#2ecc71; --bad:#ff6b6b; --primary:#5b7cff;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+      background:linear-gradient(180deg,#0b0e1a,#0f1220);color:var(--txt)}
+    .app{max-width:1200px;margin:0 auto;padding:16px}
+    .topbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+    .topbar .btn{background:rgba(255,255,255,.06);color:var(--txt);border:1px solid rgba(255,255,255,.12);padding:10px 12px;border-radius:14px;font-weight:700}
+.topbar .btn:hover{background:rgba(255,255,255,.10)}
+
+    .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .q{font-size:1.2rem;font-weight:600;margin-bottom:10px}
+    .a{white-space:pre-wrap;margin-top:10px}
+    .hidden{display:none}
+    .img{width:100%;height:auto;border-radius:14px;margin-top:12px;box-shadow:var(--shadow)}
+    .footerBar{display:flex;gap:10px;align-items:center;margin-top:14px}
+    .leftStack{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+    .row1,.row2{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .row1{width:100%}
+    .row2{width:100%}
+    .spacer{flex:1}
+
+    .actions{display:flex;gap:10px;align-items:center;width:100%}
+    .btn{border:0;border-radius:14px;padding:10px 14px;font-weight:600;cursor:pointer}
+    .primary{background:var(--primary);color:#fff}
+    .good{background:var(--good);color:#052}
+    .bad{background:var(--bad);color:#fff}
+    .stats{margin-left:auto;color:var(--muted);font-size:.9rem}
+    select{background:#0b0e1a;color:var(--txt);border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,.15)}
+    .hint{color:var(--muted);font-size:.9rem;margin-top:6px}
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <select id="themeSelect"></select>
+    <button class="btn" id="shuffleBtn" title="Mélanger les cartes">🔀 Mélanger</button>
+    <button class="btn" id="reviewWrongBtn" title="Revoir uniquement les cartes fausses">⛔ Revoir les faux</button>
+    <button class="btn" id="resetStatsBtn" title="Réinitialiser les cartes fausses">♻️ Réinitialiser stats</button>
+    <span id="offlineLabel" class="stats">—</span>
+  </div>
+
+  <div class="card">
+    <div class="q" id="qText">—</div>
+    <img id="qImg" class="img hidden" alt="" />
+
+    <div class="a hidden" id="aText"></div>
+    <img id="aImg" class="img hidden" alt="" />
+
+    <div class="footerBar">
+      <div class="leftStack">
+        <div class="row1">
+          <button class="btn primary" id="showAnswerBtn">👁 Voir la réponse</button>
+          <button class="btn" id="skipBtn" title="Mettre cette question à la fin">⏭ Suivant</button>
+        </div>
+        <div class="row2">
+          <button class="btn good hidden" id="justeBtn">✅ Juste</button>
+          <button class="btn bad hidden" id="fauxBtn">❌ Faux</button>
+        </div>
+      </div>
+      <div class="stats" id="statsLine">—</div>
+    </div>
+    <div class="hint" id="hintLine"></div>
+  </div>
+</div>
+
+<script>
+
+const APP_VERSION = "2026-02-03_1"; // incrémente à chaque changement
+
+const $ = (id)=>document.getElementById(id);
+const themeSelect = $("themeSelect");
+const offlineLabel = $("offlineLabel");
+const qText = $("qText");
+const aText = $("aText");
+const qImg = $("qImg");
+const aImg = $("aImg");
+const showAnswerBtn = $("showAnswerBtn");
+const skipBtn = $("skipBtn");
+const justeBtn = $("justeBtn");
+const fauxBtn = $("fauxBtn");
+const statsLine = $("statsLine");
+const hintLine = $("hintLine");
+const shuffleBtn = $("shuffleBtn");
+const reviewWrongBtn = $("reviewWrongBtn");
+const resetStatsBtn = $("resetStatsBtn");
+
+let THEMES_INDEX = null;
+let cards = [];
+let fullCards = [];
+let currentIndex = 0;
+let state = { showAnswer:false };
+let currentThemeId = null;
+let wrongIds = new Set();
+let reviewMode = false;
+
+function setOfflineLabel(ok){ offlineLabel.textContent = ok ? "ok" : "erreur"; }
+function withBust(url){ return url + (url.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(APP_VERSION); }
+
+function render(){
+  if(!cards.length){
+    qText.textContent="Aucune carte.";
+    aText.textContent=""; aText.classList.add("hidden");
+    qImg.classList.add("hidden"); qImg.removeAttribute("src");
+    aImg.classList.add("hidden"); aImg.removeAttribute("src");
+    showAnswerBtn.classList.remove("hidden");
+    justeBtn.classList.add("hidden");
+    fauxBtn.classList.add("hidden");
+    statsLine.textContent="—";
+    hintLine.textContent="";
+    return;
+  }
+  const card = cards[currentIndex];
+  qText.textContent = card.q || "";
+
+  if(card.img){ qImg.src = card.img; qImg.classList.remove("hidden"); }
+  else{ qImg.classList.add("hidden"); qImg.removeAttribute("src"); }
+
+  if(state.showAnswer && card.a && card.a.trim()!==""){ aText.textContent=card.a; aText.classList.remove("hidden"); }
+  else{ aText.textContent=""; aText.classList.add("hidden"); }
+
+  if(state.showAnswer && card.img_answer){ aImg.src = card.img_answer; aImg.classList.remove("hidden"); }
+  else{ aImg.classList.add("hidden"); aImg.removeAttribute("src"); }
+
+  showAnswerBtn.classList.toggle("hidden", state.showAnswer);
+  justeBtn.classList.toggle("hidden", !state.showAnswer);
+  fauxBtn.classList.toggle("hidden", !state.showAnswer);
+
+  statsLine.textContent = `${currentIndex+1} / ${cards.length}`;
+  hintLine.textContent = state.showAnswer ? "" : "Astuce: ⏭ Suivant = met la question à la fin.";
+}
+
+function next(){ state.showAnswer=false; currentIndex = (currentIndex+1) % cards.length; render(); }
+
+function shuffleInPlace(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+}
+
+function storageKeyWrong(themeId){ return `asa_wrong_${themeId}`; }
+
+function loadWrong(themeId){
+  try{
+    const raw = localStorage.getItem(storageKeyWrong(themeId));
+    const arr = raw ? JSON.parse(raw) : [];
+    wrongIds = new Set(Array.isArray(arr) ? arr : []);
+  }catch(_){
+    wrongIds = new Set();
+  }
+  updateReviewButtonLabel();
+}
+
+function saveWrong(){
+  if(!currentThemeId) return;
+  localStorage.setItem(storageKeyWrong(currentThemeId), JSON.stringify(Array.from(wrongIds)));
+}
+
+function updateReviewButtonLabel(){
+  if(!reviewWrongBtn) return;
+  reviewWrongBtn.textContent = reviewMode ? "↩️ Revenir au thème" : "⛔ Revoir les faux";
+}
+showAnswerBtn.addEventListener("click", ()=>{ state.showAnswer=true; render(); });
+
+skipBtn.addEventListener("click", ()=>{
+  if(cards.length<=1) return;
+  const c = cards.splice(currentIndex,1)[0];
+  cards.push(c);
+  if(currentIndex >= cards.length) currentIndex = 0;
+  state.showAnswer=false;
+  render();
+});
+
+justeBtn.addEventListener("click", ()=>{
+  // si la carte était dans les faux, on peut la retirer
+  const c = cards[currentIndex];
+  if(c && c.id) { wrongIds.delete(c.id); saveWrong(); }
+  next();
+});
+
+fauxBtn.addEventListener("click", ()=>{
+  const c = cards[currentIndex];
+  if(c && c.id) { wrongIds.add(c.id); saveWrong(); }
+  next();
+});
+
+async function loadTheme(id){
+  const t = THEMES_INDEX?.themes?.find(x=>x.id===id);
+  if(!t){ cards=[]; qText.textContent="Thème introuvable."; render(); return; }
+  try{
+    const r = await fetch(withBust(t.file), {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data = await r.json();
+    if(!Array.isArray(data.cards)) throw new Error("JSON invalide: cards manquant");
+    cards = data.cards.slice();
+    currentIndex=0; state.showAnswer=false;
+    render();
+  }catch(e){
+    cards=[]; currentIndex=0; state.showAnswer=false;
+    qText.textContent = `Erreur de chargement du thème: ${t.file}`;
+    aText.textContent = String(e);
+    aText.classList.remove("hidden");
+    statsLine.textContent="—";
+    hintLine.textContent="";
+  }
+}
+
+async function loadIndex(){
+  try{
+    const r = await fetch(withBust("themes/index.json"), {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const idx = await r.json();
+    if(!Array.isArray(idx.themes) || idx.themes.length===0) throw new Error("index.json invalide (themes vide)");
+    THEMES_INDEX = idx;
+    themeSelect.innerHTML = idx.themes.map(t=>`<option value="${t.id}">${t.name}</option>`).join("");
+    await loadTheme(idx.themes[0].id);
+    setOfflineLabel(true);
+  }catch(err){
+    console.error(err);
+    setOfflineLabel(false);
+    qText.textContent="Erreur de chargement (themes/index.json).";
+    aText.textContent=String(err);
+    aText.classList.remove("hidden");
+  }
+}
+
+shuffleBtn?.addEventListener("click", ()=>{
+  if(!cards.length) return;
+  shuffleInPlace(cards);
+  currentIndex = 0;
+  state.showAnswer = false;
+  render();
+});
+
+reviewWrongBtn?.addEventListener("click", ()=>{
+  if(!currentThemeId) return;
+
+  if(reviewMode){
+    reviewMode = false;
+    cards = fullCards.slice();
+    currentIndex = 0;
+    state.showAnswer = false;
+    updateReviewButtonLabel();
+    render();
+    return;
+  }
+
+  const list = fullCards.filter(c => c && c.id && wrongIds.has(c.id));
+  if(!list.length){
+    alert("Aucune question marquée comme fausse pour ce thème.");
+    return;
+  }
+  reviewMode = true;
+  cards = list;
+  currentIndex = 0;
+  state.showAnswer = false;
+  updateReviewButtonLabel();
+  render();
+});
+
+resetStatsBtn?.addEventListener("click", ()=>{
+  if(!currentThemeId) return;
+  if(confirm("Réinitialiser la liste des questions fausses pour ce thème ?")){
+    wrongIds = new Set();
+    saveWrong();
+    if(reviewMode){
+      reviewMode = false;
+      updateReviewButtonLabel();
+    }
+    cards = fullCards.slice();
+    currentIndex = 0;
+    state.showAnswer = false;
+    render();
+  }
+});
+
+themeSelect.addEventListener("change", e=>loadTheme(e.target.value));
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register(withBust("sw.js")).catch(()=>{});
+}
+
+loadIndex();
+
+</script>
+</body>
+</html>
