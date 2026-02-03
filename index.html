@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cours ASA – Révision</title>
+  <style>
+    :root{
+      --bg:#0f1220; --card:#171a2b; --txt:#e9ecff; --muted:#9aa3ff;
+      --good:#2ecc71; --bad:#ff6b6b; --primary:#5b7cff;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+      background:linear-gradient(180deg,#0b0e1a,#0f1220);color:var(--txt)}
+    .app{max-width:860px;margin:0 auto;padding:16px}
+    .topbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+    .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .q{font-size:1.2rem;font-weight:600;margin-bottom:10px}
+    .a{white-space:pre-wrap;margin-top:10px}
+    .hidden{display:none}
+    .img{width:100%;height:auto;border-radius:14px;margin-top:12px;box-shadow:var(--shadow)}
+    .footerBar{display:flex;gap:10px;align-items:center;margin-top:14px}
+    .actions{display:flex;gap:10px;align-items:center;width:100%}
+    .btn{border:0;border-radius:14px;padding:10px 14px;font-weight:600;cursor:pointer}
+    .primary{background:var(--primary);color:#fff}
+    .good{background:var(--good);color:#052}
+    .bad{background:var(--bad);color:#fff}
+    #skipBtn{margin-left:auto}
+    .stats{margin-left:auto;color:var(--muted);font-size:.9rem}
+    select{background:#0b0e1a;color:var(--txt);border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,.15)}
+    .hint{color:var(--muted);font-size:.9rem;margin-top:6px}
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <select id="themeSelect"></select>
+    <span id="offlineLabel" class="stats">—</span>
+  </div>
+
+  <div class="card">
+    <div class="q" id="qText">—</div>
+    <img id="qImg" class="img hidden" alt="" />
+
+    <div class="a hidden" id="aText"></div>
+    <img id="aImg" class="img hidden" alt="" />
+
+    <div class="footerBar">
+      <div class="actions">
+        <button class="btn primary" id="showAnswerBtn">👁 Voir la réponse</button>
+        <button class="btn" id="skipBtn" title="Mettre cette question à la fin">⏭ Suivant</button>
+        <button class="btn good hidden" id="justeBtn">✅ Juste</button>
+        <button class="btn bad hidden" id="fauxBtn">❌ Faux</button>
+      </div>
+      <div class="stats" id="statsLine">—</div>
+    </div>
+    <div class="hint" id="hintLine"></div>
+  </div>
+</div>
+
+<script>
+const APP_VERSION = "2026-02-03_1"; // incrémente à chaque changement
+
+const $ = (id)=>document.getElementById(id);
+const themeSelect = $("themeSelect");
+const offlineLabel = $("offlineLabel");
+const qText = $("qText");
+const aText = $("aText");
+const qImg = $("qImg");
+const aImg = $("aImg");
+const showAnswerBtn = $("showAnswerBtn");
+const skipBtn = $("skipBtn");
+const justeBtn = $("justeBtn");
+const fauxBtn = $("fauxBtn");
+const statsLine = $("statsLine");
+const hintLine = $("hintLine");
+
+let THEMES_INDEX = null;
+let cards = [];
+let currentIndex = 0;
+let state = { showAnswer:false };
+
+function setOfflineLabel(ok){ offlineLabel.textContent = ok ? "ok" : "erreur"; }
+function withBust(url){ return url + (url.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(APP_VERSION); }
+
+function render(){
+  if(!cards.length){
+    qText.textContent="Aucune carte.";
+    aText.textContent=""; aText.classList.add("hidden");
+    qImg.classList.add("hidden"); qImg.removeAttribute("src");
+    aImg.classList.add("hidden"); aImg.removeAttribute("src");
+    showAnswerBtn.classList.remove("hidden");
+    justeBtn.classList.add("hidden");
+    fauxBtn.classList.add("hidden");
+    statsLine.textContent="—";
+    hintLine.textContent="";
+    return;
+  }
+  const card = cards[currentIndex];
+  qText.textContent = card.q || "";
+
+  if(card.img){ qImg.src = card.img; qImg.classList.remove("hidden"); }
+  else{ qImg.classList.add("hidden"); qImg.removeAttribute("src"); }
+
+  if(state.showAnswer && card.a && card.a.trim()!==""){ aText.textContent=card.a; aText.classList.remove("hidden"); }
+  else{ aText.textContent=""; aText.classList.add("hidden"); }
+
+  if(state.showAnswer && card.img_answer){ aImg.src = card.img_answer; aImg.classList.remove("hidden"); }
+  else{ aImg.classList.add("hidden"); aImg.removeAttribute("src"); }
+
+  showAnswerBtn.classList.toggle("hidden", state.showAnswer);
+  justeBtn.classList.toggle("hidden", !state.showAnswer);
+  fauxBtn.classList.toggle("hidden", !state.showAnswer);
+
+  statsLine.textContent = `${currentIndex+1} / ${cards.length}`;
+  hintLine.textContent = state.showAnswer ? "" : "Astuce: ⏭ Suivant = met la question à la fin.";
+}
+
+function next(){ state.showAnswer=false; currentIndex = (currentIndex+1) % cards.length; render(); }
+
+showAnswerBtn.addEventListener("click", ()=>{ state.showAnswer=true; render(); });
+
+skipBtn.addEventListener("click", ()=>{
+  if(cards.length<=1) return;
+  const c = cards.splice(currentIndex,1)[0];
+  cards.push(c);
+  if(currentIndex >= cards.length) currentIndex = 0;
+  state.showAnswer=false;
+  render();
+});
+
+justeBtn.addEventListener("click", next);
+fauxBtn.addEventListener("click", next);
+
+async function loadTheme(id){
+  const t = THEMES_INDEX?.themes?.find(x=>x.id===id);
+  if(!t){ cards=[]; qText.textContent="Thème introuvable."; render(); return; }
+  try{
+    const r = await fetch(withBust(t.file), {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data = await r.json();
+    if(!Array.isArray(data.cards)) throw new Error("JSON invalide: cards manquant");
+    cards = data.cards.slice();
+    currentIndex=0; state.showAnswer=false;
+    render();
+  }catch(e){
+    cards=[]; currentIndex=0; state.showAnswer=false;
+    qText.textContent = `Erreur de chargement du thème: ${t.file}`;
+    aText.textContent = String(e);
+    aText.classList.remove("hidden");
+    statsLine.textContent="—";
+    hintLine.textContent="";
+  }
+}
+
+async function loadIndex(){
+  try{
+    const r = await fetch(withBust("themes/index.json"), {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const idx = await r.json();
+    if(!Array.isArray(idx.themes) || idx.themes.length===0) throw new Error("index.json invalide (themes vide)");
+    THEMES_INDEX = idx;
+    themeSelect.innerHTML = idx.themes.map(t=>`<option value="${t.id}">${t.name}</option>`).join("");
+    await loadTheme(idx.themes[0].id);
+    setOfflineLabel(true);
+  }catch(err){
+    console.error(err);
+    setOfflineLabel(false);
+    qText.textContent="Erreur de chargement (themes/index.json).";
+    aText.textContent=String(err);
+    aText.classList.remove("hidden");
+  }
+}
+
+themeSelect.addEventListener("change", e=>loadTheme(e.target.value));
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register(withBust("sw.js")).catch(()=>{});
+}
+
+loadIndex();
+</script>
+</body>
+</html>
