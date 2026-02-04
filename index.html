@@ -362,10 +362,16 @@ function render(){
     aImg.removeAttribute("src");
   }
 
-  // Controls: hide Juste/Faux until answer is shown
-  showAnswerBtn.classList.toggle("hidden", state.showAnswer);
-  if(state.showAnswer){ showMarkRow(); } else { hideMarkRow(); }
-  lockMarkButtons(!state.showAnswer);
+ // Controls: hide Juste/Faux until answer is shown
+showAnswerBtn.classList.toggle("hidden", state.showAnswer);
+skipBtn.classList.toggle("hidden", state.showAnswer);
+
+if(state.showAnswer){
+  showMarkRow();
+} else {
+  hideMarkRow();
+}
+lockMarkButtons(!state.showAnswer);
 
   // Stats line
   const base = `${currentIndex+1} / ${cards.length}`;
