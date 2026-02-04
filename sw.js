@@ -1,12 +1,12 @@
-const CACHE_NAME = "cours-asa-shell-v7";
+const CACHE_NAME = "cours-asa-shell-v8";
 const RUNTIME_CACHE = "cours-asa-runtime-v2";
 
 const SHELL_ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./icon-192.png",
-  "./icon-512.png",
+  "./icone-192.png",
+  "./icone-512.png",
   "./themes/index.json"
 ];
 
