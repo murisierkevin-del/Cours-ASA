@@ -339,10 +339,6 @@ function render(){
     finishBtn.classList.add("hidden");
   }
 
-  // Toujours réactiver l'affichage (sinon si on vient de "finish", ça reste caché)
-  showAnswerBtn.classList.remove("hidden");
-  justeBtn.classList.remove("hidden");
-
   if(!cards.length){
     qText.textContent="Aucune carte.";
     aText.textContent=""; aText.classList.add("hidden");
@@ -387,6 +383,11 @@ function render(){
     aImg.classList.add("hidden");
     aImg.removeAttribute("src");
   }
+// État initial du swap (AVANT réponse)
+if(!state.showAnswer){
+  showAnswerBtn.classList.remove("swapHide");
+  justeBtn.classList.add("swapHide");
+}
 
   // ✅ Controls (swap + UX pouce)
   showAnswerBtn.classList.toggle("swapHide", state.showAnswer); // cache visuellement + désactive
