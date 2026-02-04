@@ -4,11 +4,15 @@ const RUNTIME_CACHE = "cours-asa-runtime-v2";
 const SHELL_ASSETS = [
   "./",
   "./index.html",
+  "./sw.js",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png",
   "./themes/index.json"
 ];
+
+// Base path automatique (ex: https://xxx.github.io/Cours-ASA/  =>  /Cours-ASA/)
+const BASE_PATH = new URL(self.registration.scope).pathname; // finit par "/"
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -23,8 +27,8 @@ self.addEventListener("activate", (event) => {
       const keys = await caches.keys();
       await Promise.all(
         keys
-          .filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE)
-          .map(k => caches.delete(k))
+          .filter((k) => k !== CACHE_NAME && k !== RUNTIME_CACHE)
+          .map((k) => caches.delete(k))
       );
       await self.clients.claim();
     })()
@@ -34,6 +38,7 @@ self.addEventListener("activate", (event) => {
 async function cacheFirst(req) {
   const cached = await caches.match(req);
   if (cached) return cached;
+
   const res = await fetch(req);
   const cache = await caches.open(RUNTIME_CACHE);
   cache.put(req, res.clone());
@@ -42,7 +47,7 @@ async function cacheFirst(req) {
 
 async function networkFirst(req) {
   try {
-    const res = await fetch(req);
+    const res = await fetch(req, { cache: "no-store" });
     const cache = await caches.open(RUNTIME_CACHE);
     cache.put(req, res.clone());
     return res;
@@ -60,29 +65,38 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // 1) Toujours à jour : cœur de l’app
-  if (
-    url.pathname.endsWith("/") ||
-    url.pathname.endsWith("/index.html") ||
-    url.pathname.endsWith("/sw.js") ||
-    url.pathname.endsWith("/manifest.json")
-  ) {
+  const path = url.pathname;
+
+  // Tout ce qui est hors de l'app (au cas où) -> laissez le navigateur gérer
+  if (!path.startsWith(BASE_PATH)) return;
+
+  // 1) Cœur de l’app : toujours à jour (network-first)
+  const isAppRoot = path === BASE_PATH; // /Cours-ASA/
+  const isCore =
+    isAppRoot ||
+    path === `${BASE_PATH}index.html` ||
+    path === `${BASE_PATH}sw.js` ||
+    path === `${BASE_PATH}manifest.json` ||
+    path === `${BASE_PATH}icon-192.png` ||
+    path === `${BASE_PATH}icon-512.png`;
+
+  if (isCore) {
     event.respondWith(networkFirst(req));
     return;
   }
 
-  // 2) Toujours à jour : TOUS les JSON de thèmes
-  if (url.pathname.startsWith("/Cours-ASA/themes/") && url.pathname.endsWith(".json")) {
+  // 2) Tous les JSON des thèmes : toujours à jour (network-first)
+  if (path.startsWith(`${BASE_PATH}themes/`) && path.endsWith(".json")) {
     event.respondWith(networkFirst(req));
     return;
   }
 
   // 3) Images : cache-first
-  if (url.pathname.startsWith("/Cours-ASA/images/")) {
+  if (path.startsWith(`${BASE_PATH}images/`)) {
     event.respondWith(cacheFirst(req));
     return;
   }
 
-  // 4) Le reste
+  // 4) Le reste : cache-first
   event.respondWith(cacheFirst(req));
 });
