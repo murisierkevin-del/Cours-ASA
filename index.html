@@ -94,7 +94,6 @@
     }
     .q{font-size:1.15rem; font-weight:900; margin:0 0 10px 0; line-height:1.25}
     .a{white-space:pre-wrap; margin-top:10px; color:rgba(233,236,255,.92); line-height:1.35}
-    .hidden{display:none}
     .img{width:100%; height:auto; border-radius:14px; margin-top:12px; box-shadow:var(--shadow)}
     .hint{color:var(--muted); font-size:.9rem; margin-top:10px}
 
@@ -142,6 +141,9 @@
       justify-content:space-between;
     }
     .statsLine .right{ margin-left:auto; }
+
+    /* ✅ IMPORTANT: hidden must win over .row { display:flex } */
+    .hidden{ display:none !important; }
 
     /* Desktop: keep your old wider layout */
     @media (min-width: 900px){
@@ -279,13 +281,10 @@ function updateReviewButtonLabel(){
 }
 
 function isThemeFinished(){
-  // Finished only in normal mode and only if all cards have been answered (Juste/Faux) at least once.
   if(reviewMode) return false;
   if(!fullCards.length) return false;
-  // We rely on ids; if missing, fallback to length by index (not ideal, but safe).
   const allHaveId = fullCards.every(c => c && c.id);
   if(allHaveId) return doneIds.size >= fullCards.length;
-  // If no IDs, consider "finished" after visiting all indices at least once (not persisted).
   return false;
 }
 
@@ -293,7 +292,6 @@ function hideMarkRow(){ markRow.classList.add('hidden'); }
 function showMarkRow(){ markRow.classList.remove('hidden'); }
 
 function lockMarkButtons(locked){
-  // locked=true => user cannot tap Juste/Faux before seeing the answer
   justeBtn.disabled = locked;
   fauxBtn.disabled = locked;
   if(locked){ markRow.classList.add('noTap'); }
@@ -301,7 +299,6 @@ function lockMarkButtons(locked){
 }
 
 function render(){
-  // finished state
   if(isThemeFinished()){
     qText.textContent = "✅ Thème terminé !";
     hintLine.textContent = "Tu peux changer de thème (bouton en bas) ou revoir les faux.";
@@ -309,17 +306,11 @@ function render(){
     qImg.classList.add("hidden"); qImg.removeAttribute("src");
     aImg.classList.add("hidden"); aImg.removeAttribute("src");
 
-    // show finish button + allow review wrong
     finishBtn.classList.remove("hidden");
-
-    // hide answer controls
     showAnswerBtn.classList.add("hidden");
     markRow.classList.add("hidden");
-
-    // keep skip visible but useless; hide it
     skipBtn.classList.add("hidden");
 
-    // stats
     statsLine.textContent = `${fullCards.length} / ${fullCards.length} (terminé)`;
     return;
   } else {
@@ -372,7 +363,6 @@ function render(){
   showAnswerBtn.classList.toggle("hidden", state.showAnswer);
   if(state.showAnswer){ showMarkRow(); } else { hideMarkRow(); }
   lockMarkButtons(!state.showAnswer);
-  lockMarkButtons(!state.showAnswer);
 
   // Stats line
   const base = `${currentIndex+1} / ${cards.length}`;
@@ -403,10 +393,9 @@ function shuffleInPlace(arr){
 }
 
 showAnswerBtn.addEventListener("click", ()=>{
+  state.showAnswer=true;
   showMarkRow();
   lockMarkButtons(false);
-
-  state.showAnswer=true;
   render();
 });
 
@@ -431,6 +420,7 @@ function markDoneForCurrentCard(){
 }
 
 justeBtn.addEventListener("click", ()=>{
+  if(!state.showAnswer) return; // ✅ sécurité
   const c = cards[currentIndex];
   if(c && c.id){ wrongIds.delete(c.id); saveWrong(); }
   markDoneForCurrentCard();
@@ -438,6 +428,7 @@ justeBtn.addEventListener("click", ()=>{
 });
 
 fauxBtn.addEventListener("click", ()=>{
+  if(!state.showAnswer) return; // ✅ sécurité
   const c = cards[currentIndex];
   if(c && c.id){ wrongIds.add(c.id); saveWrong(); }
   markDoneForCurrentCard();
@@ -456,7 +447,6 @@ reviewWrongBtn.addEventListener("click", ()=>{
   if(!currentThemeId) return;
 
   if(reviewMode){
-    // back to full theme
     reviewMode = false;
     cards = fullCards.slice();
     currentIndex = 0;
@@ -499,7 +489,6 @@ resetStatsBtn.addEventListener("click", ()=>{
 });
 
 finishBtn.addEventListener("click", ()=>{
-  // iOS: focus doesn't always open the picker; we at least bring it into view.
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   setTimeout(()=>{
     themeSelect.focus();
@@ -536,7 +525,6 @@ async function loadTheme(id){
     currentIndex=0; state.showAnswer=false;
     hideMarkRow();
 
-    // If all finished, show finish state right away
     render();
     setOfflineLabel(true);
   }catch(e){
@@ -583,7 +571,6 @@ async function loadIndex(){
     aText.textContent=String(err);
     aText.classList.remove("hidden");
 
-    // Disable actions in a clear way
     showAnswerBtn.classList.add("hidden");
     markRow.classList.add("hidden");
     skipBtn.classList.add("hidden");
