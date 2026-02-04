@@ -4,10 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Cours ASA – Révision</title>
+
   <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=10">
-<link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png?v=10">
+  <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png?v=10">
   <link rel="apple-touch-icon" href="./icon-192.png?v=10">
-<link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png?v=10">
+  <link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png?v=10">
+
   <style>
     :root{
       --bg:#0f1220; --card:#171a2b; --txt:#e9ecff; --muted:#9aa3ff;
@@ -21,10 +23,9 @@
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
       background:linear-gradient(180deg,#0b0e1a,#0f1220);
       color:var(--txt);
-      overflow:hidden; /* iPhone: scroll only in main */
+      overflow:hidden;
     }
 
-    /* iPhone/Safari viewport */
     .app{
       height:100dvh;
       display:flex;
@@ -35,7 +36,6 @@
       .app{ height:-webkit-fill-available; }
     }
 
-    /* Top bar (sticky) */
     .topbar{
       position:sticky; top:0;
       display:flex;
@@ -82,12 +82,11 @@
       max-width: 100%;
     }
 
-    /* Main scroll area */
     main{
       flex:1;
       overflow:auto;
       -webkit-overflow-scrolling:touch;
-      padding-bottom: calc(190px + env(safe-area-inset-bottom)); /* keep above panel */
+      padding-bottom: calc(190px + env(safe-area-inset-bottom));
     }
 
     .card{
@@ -99,9 +98,7 @@
     .q{font-size:1.25rem; font-weight:900; margin:0 0 10px 0; line-height:1.25}
     .a{white-space:pre-wrap; margin-top:10px; color:rgba(233,236,255,.92); line-height:1.35}
     .img{width:100%; height:auto; border-radius:14px; margin-top:12px; box-shadow:var(--shadow)}
-    .hint{color:var(--muted); font-size:.9rem; margin-top:10px}
 
-    /* Bottom panel fixed */
     .panel{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -117,6 +114,7 @@
       z-index:20;
     }
     .row{display:flex; gap:10px;}
+
     .actionBtn{
       border:0;
       border-radius:14px;
@@ -129,9 +127,9 @@
       background:rgba(255,255,255,.10);
       width:100%;
     }
+
     .actionBtn:active{ transform:scale(.99); }
     button:disabled{ opacity:.45; filter:saturate(.7); }
-    .noTap{ pointer-events:none; }
 
     .primary{background:var(--primary);}
     .good{background:var(--good); color:#052;}
@@ -144,17 +142,36 @@
       font-size:.9rem;
       justify-content:space-between;
     }
-    .statsLine .right{ margin-left:auto; }
 
-    /* ✅ IMPORTANT: hidden must win over .row { display:flex } */
     .hidden{ display:none !important; }
 
-    /* Desktop: keep your old wider layout */
+    /* 🔁 Swap “Voir la réponse” ↔ “Juste” (même place) */
+    .swapWrap{
+      position: relative;
+      width: 100%;
+      height: 48px; /* hauteur stable (évite le jump) */
+    }
+    .swapBtn{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      transition: opacity .16s ease, transform .16s ease;
+      will-change: opacity, transform;
+    }
+    .swapHide{
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+    }
+
     @media (min-width: 900px){
       body{ overflow:auto; }
       .app{ max-width: 1200px; margin:0 auto; height:auto; padding:16px; }
       main{ padding-bottom: 0; }
       .panel{ position:static; border-radius:18px; margin-top:14px; }
+      .swapWrap{ height:auto; } /* desktop */
+      .swapBtn{ position:static; } /* desktop */
+      .swapHide{ display:none; } /* desktop */
     }
   </style>
 </head>
@@ -178,24 +195,29 @@
 
         <div class="a hidden" id="aText"></div>
         <img id="aImg" class="img hidden" alt="" />
-
       </div>
     </main>
 
-    <!-- Panel fixe en bas (iPhone) -->
     <div class="panel">
       <div class="statsLine">
         <div id="statsLine">—</div>
       </div>
 
-      <button class="actionBtn primary" id="showAnswerBtn">👁 Voir la réponse</button>
-
+      <!-- ✅ Swap: même place -->
       <div class="row">
+        <div class="swapWrap">
+          <button class="actionBtn primary swapBtn" id="showAnswerBtn">👁 Voir la réponse</button>
+          <button class="actionBtn good swapBtn swapHide" id="justeBtn" disabled>✅ Juste</button>
+        </div>
+      </div>
+
+      <!-- Suivant -->
+      <div class="row" id="skipRow">
         <button class="actionBtn" id="skipBtn" title="Mettre cette question à la fin">⏭ Suivant</button>
       </div>
 
-      <div class="row hidden" id="markRow">
-        <button class="actionBtn good" id="justeBtn" disabled>✅ Juste</button>
+      <!-- Faux en bas -->
+      <div class="row hidden" id="fauxRow">
         <button class="actionBtn bad" id="fauxBtn" disabled>❌ Faux</button>
       </div>
 
@@ -221,14 +243,15 @@ const qImg = $("qImg");
 const aImg = $("aImg");
 
 const showAnswerBtn = $("showAnswerBtn");
-const skipBtn = $("skipBtn");
 const justeBtn = $("justeBtn");
 const fauxBtn = $("fauxBtn");
-const markRow = $("markRow");
+const fauxRow = $("fauxRow");
+
+const skipBtn = $("skipBtn");
+const skipRow = $("skipRow");
 const finishBtn = $("finishBtn");
 
 const statsLine = $("statsLine");
-const hintLine = $("hintLine");
 
 const shuffleBtn = $("shuffleBtn");
 const reviewWrongBtn = $("reviewWrongBtn");
@@ -243,16 +266,15 @@ let state = { showAnswer:false };
 let currentThemeId = null;
 let wrongIds = new Set();
 let reviewMode = false;
-let doneIds = new Set(); // cards answered (Juste/Faux) in normal mode
+let doneIds = new Set();
 
 function setOfflineLabel(ok){ offlineLabel.textContent = ok ? "ok" : "erreur"; }
 function withBust(url){
-  // cache-bust based on index.json version (what YOU control)
   return url + (url.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(appVersion);
 }
 
 function storageKeyWrong(themeId){ return `asa_wrong_${themeId}`; }
-function storageKeyDone(themeId){ return `asa_done_${themeId}`; } // optional persistence (simple)
+function storageKeyDone(themeId){ return `asa_done_${themeId}`; }
 
 function loadWrong(themeId){
   try{
@@ -291,35 +313,35 @@ function isThemeFinished(){
   return false;
 }
 
-function hideMarkRow(){ markRow.classList.add('hidden'); }
-function showMarkRow(){ markRow.classList.remove('hidden'); }
-
 function lockMarkButtons(locked){
   justeBtn.disabled = locked;
   fauxBtn.disabled = locked;
-  if(locked){ markRow.classList.add('noTap'); }
-  else { markRow.classList.remove('noTap'); }
 }
 
 function render(){
   if(isThemeFinished()){
     qText.textContent = "✅ Thème terminé !";
-    hintLine.textContent = "Tu peux changer de thème (bouton en bas) ou revoir les faux.";
     aText.classList.add("hidden"); aText.textContent = "";
     qImg.classList.add("hidden"); qImg.removeAttribute("src");
     aImg.classList.add("hidden"); aImg.removeAttribute("src");
 
     finishBtn.classList.remove("hidden");
+
+    // Masquer tout
     showAnswerBtn.classList.add("hidden");
-    markRow.classList.add("hidden");
-    skipBtn.classList.add("hidden");
+    justeBtn.classList.add("hidden");
+    fauxRow.classList.add("hidden");
+    skipRow.classList.add("hidden");
 
     statsLine.textContent = `${fullCards.length} / ${fullCards.length} (terminé)`;
     return;
   } else {
     finishBtn.classList.add("hidden");
-    skipBtn.classList.remove("hidden");
   }
+
+  // Toujours réactiver l'affichage (sinon si on vient de "finish", ça reste caché)
+  showAnswerBtn.classList.remove("hidden");
+  justeBtn.classList.remove("hidden");
 
   if(!cards.length){
     qText.textContent="Aucune carte.";
@@ -327,11 +349,15 @@ function render(){
     qImg.classList.add("hidden"); qImg.removeAttribute("src");
     aImg.classList.add("hidden"); aImg.removeAttribute("src");
 
-    showAnswerBtn.classList.remove("hidden");
-    markRow.classList.add("hidden");
+    fauxRow.classList.add("hidden");
+    skipRow.classList.remove("hidden");
+
+    // Swap état "pas de réponse"
+    showAnswerBtn.classList.remove("swapHide");
+    justeBtn.classList.add("swapHide");
 
     statsLine.textContent="—";
-    hintLine.textContent="";
+    lockMarkButtons(true);
     return;
   }
 
@@ -362,16 +388,14 @@ function render(){
     aImg.removeAttribute("src");
   }
 
- // Controls: hide Juste/Faux until answer is shown
-showAnswerBtn.classList.toggle("hidden", state.showAnswer);
-skipBtn.classList.toggle("hidden", state.showAnswer);
+  // ✅ Controls (swap + UX pouce)
+  showAnswerBtn.classList.toggle("swapHide", state.showAnswer); // cache visuellement + désactive
+  justeBtn.classList.toggle("swapHide", !state.showAnswer);
 
-if(state.showAnswer){
-  showMarkRow();
-} else {
-  hideMarkRow();
-}
-lockMarkButtons(!state.showAnswer);
+  skipRow.classList.toggle("hidden", state.showAnswer);
+  fauxRow.classList.toggle("hidden", !state.showAnswer);
+
+  lockMarkButtons(!state.showAnswer);
 
   // Stats line
   const base = `${currentIndex+1} / ${cards.length}`;
@@ -381,13 +405,9 @@ lockMarkButtons(!state.showAnswer);
   }else{
     statsLine.textContent = base;
   }
-
 }
 
 function next(){
-  hideMarkRow();
-  lockMarkButtons(true);
-
   state.showAnswer=false;
   currentIndex = (currentIndex+1) % cards.length;
   render();
@@ -402,19 +422,15 @@ function shuffleInPlace(arr){
 
 showAnswerBtn.addEventListener("click", ()=>{
   state.showAnswer=true;
-  showMarkRow();
-  lockMarkButtons(false);
   render();
 });
 
 skipBtn.addEventListener("click", ()=>{
-  hideMarkRow();
   if(cards.length<=1) return;
   const c = cards.splice(currentIndex,1)[0];
   cards.push(c);
   if(currentIndex >= cards.length) currentIndex = 0;
   state.showAnswer=false;
-  lockMarkButtons(true);
   render();
 });
 
@@ -428,7 +444,7 @@ function markDoneForCurrentCard(){
 }
 
 justeBtn.addEventListener("click", ()=>{
-  if(!state.showAnswer) return; // ✅ sécurité
+  if(!state.showAnswer) return;
   const c = cards[currentIndex];
   if(c && c.id){ wrongIds.delete(c.id); saveWrong(); }
   markDoneForCurrentCard();
@@ -436,7 +452,7 @@ justeBtn.addEventListener("click", ()=>{
 });
 
 fauxBtn.addEventListener("click", ()=>{
-  if(!state.showAnswer) return; // ✅ sécurité
+  if(!state.showAnswer) return;
   const c = cards[currentIndex];
   if(c && c.id){ wrongIds.add(c.id); saveWrong(); }
   markDoneForCurrentCard();
@@ -531,18 +547,15 @@ async function loadTheme(id){
     fullCards = data.cards.slice();
     cards = fullCards.slice();
     currentIndex=0; state.showAnswer=false;
-    hideMarkRow();
 
     render();
     setOfflineLabel(true);
   }catch(e){
     cards=[]; fullCards=[]; currentIndex=0; state.showAnswer=false;
-    hideMarkRow();
     qText.textContent = `Erreur de chargement du thème: ${t.file}`;
     aText.textContent = String(e);
     aText.classList.remove("hidden");
     statsLine.textContent="—";
-    hintLine.textContent="";
     setOfflineLabel(false);
   }
 }
@@ -557,17 +570,13 @@ async function loadIndex(){
 
     THEMES_INDEX = idx;
 
-    // Show ONLY the index.json version to user
     contentVersion.textContent = idx.version;
-
-    // Use it for cache-busting too
     appVersion = idx.version;
 
     themeSelect.innerHTML = idx.themes.map(t=>`<option value="${t.id}">${t.name}</option>`).join("");
     await loadTheme(idx.themes[0].id);
     setOfflineLabel(true);
 
-    // Register SW AFTER version is known (so bust works)
     if("serviceWorker" in navigator){
       navigator.serviceWorker.register(withBust("sw.js")).catch(()=>{});
     }
@@ -580,8 +589,9 @@ async function loadIndex(){
     aText.classList.remove("hidden");
 
     showAnswerBtn.classList.add("hidden");
-    markRow.classList.add("hidden");
-    skipBtn.classList.add("hidden");
+    justeBtn.classList.add("hidden");
+    fauxRow.classList.add("hidden");
+    skipRow.classList.add("hidden");
     finishBtn.classList.add("hidden");
   }
 }
