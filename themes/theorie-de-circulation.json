@@ -4,13 +4,8 @@
   "cards": [
     {
       "id": "q001",
-      "q": "A quoi sert la Méthode A-A-A(A-A-I) ?",
-      "a": ""
-    },
-    {
-      "id": "q002",
-      "q": "C’est l’évaluation des partenaires",
-      "a": "Lorsque l’un des éléments amène le doute…\nPasser du principe de confiance à celui de sécurité."
+      "q": "A quoi sert la Méthode A-A-I ?",
+      "a": "C’est l’évaluation des partenaires, Lorsque l’un des éléments amène le doute…\nPasser du principe de confiance à celui de sécurité."
     },
     {
       "id": "q003",
