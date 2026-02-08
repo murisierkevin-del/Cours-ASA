@@ -127,7 +127,6 @@
       background:rgba(255,255,255,.10);
       width:100%;
     }
-
     .actionBtn:active{ transform:scale(.99); }
     button:disabled{ opacity:.45; filter:saturate(.7); }
 
@@ -135,6 +134,7 @@
     .good{background:var(--good); color:#052;}
     .bad{background:var(--bad);}
     .gold{background:var(--gold); color:#1b1b1b;}
+
     .statsLine{
       display:flex; gap:10px; flex-wrap:wrap;
       align-items:center;
@@ -176,6 +176,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="app">
     <div class="topbar">
@@ -184,9 +185,8 @@
       <span class="pill muted">Version contenu: <span id="contentVersion">—</span></span>
       <span class="pill muted">Réseau: <span id="offlineLabel">—</span></span>
 
-      <button class="btn" id="shuffleBtn" title="Mélanger les cartes">🔀 Mélanger</button>
-      <button class="btn" id="reviewWrongBtn" title="Revoir uniquement les cartes fausses">⛔ Revoir les faux</button>
-      <button class="btn" id="resetStatsBtn" title="Réinitialiser les cartes fausses">♻️ Réinitialiser stats</button>
+      <!-- ✅ demandé : on supprime Mélanger + Revoir les faux -->
+      <button class="btn" id="resetStatsBtn" title="Réinitialiser la progression (toutes les questions reviennent)">♻️ Réinitialiser stats</button>
     </div>
 
     <main>
@@ -214,7 +214,7 @@
 
       <!-- Suivant -->
       <div class="row" id="skipRow">
-        <button class="actionBtn" id="skipBtn" title="Mettre cette question à la fin">⏭ Suivant</button>
+        <button class="actionBtn" id="skipBtn" title="Passer (question remise dans le tirage aléatoire)">⏭ Suivant</button>
       </div>
 
       <!-- Faux en bas -->
@@ -228,8 +228,12 @@
 
 <script>
 /*
-  Version affichée = UNIQUEMENT themes/index.json (champ "version")
-  Pas de mode démo.
+  ✅ Modifs demandées :
+  - Supprime “Mélanger” → tirage aléatoire automatique
+  - Supprime “Revoir les faux” + sa logique
+  - Révision intelligente : après 3x “Juste”, la question disparaît
+  - Stat progression en % (maîtrisées / total)
+  - “Réinitialiser stats” : remet TOUTES les questions (reset des compteurs)
 */
 
 const $ = (id)=>document.getElementById(id);
@@ -253,30 +257,26 @@ const skipRow = $("skipRow");
 const finishBtn = $("finishBtn");
 
 const statsLine = $("statsLine");
-
-const shuffleBtn = $("shuffleBtn");
-const reviewWrongBtn = $("reviewWrongBtn");
 const resetStatsBtn = $("resetStatsBtn");
 
 let THEMES_INDEX = null;
-let appVersion = "0"; // set from themes/index.json version (for cache-bust)
-let cards = [];
-let fullCards = [];
-let currentIndex = 0;
+let appVersion = "0"; // from themes/index.json version
+
+let fullCards = [];       // toutes les cartes du thème
+let activeCards = [];     // cartes à réviser (maîtrise < 3)
+let currentCard = null;
+
 let state = { showAnswer:false };
 let currentThemeId = null;
-let wrongIds = new Set();
-let reviewMode = false;
-let doneIds = new Set();
+
+const MASTERY_THRESHOLD = 3;
+let mastery = {};         // { [id]: number } 0..3
 
 function setOfflineLabel(ok){ offlineLabel.textContent = ok ? "ok" : "erreur"; }
 
 /* ✅ Mini ligne réseau fiable (online/offline + ping léger) */
 function refreshNetworkLabel(){
-  // 1) statut navigateur
   setOfflineLabel(navigator.onLine);
-
-  // 2) ping léger pour confirmer un vrai accès
   fetch("themes/index.json", { cache:"no-store" })
     .then(r => setOfflineLabel(r.ok))
     .catch(() => setOfflineLabel(false));
@@ -289,49 +289,67 @@ function withBust(url){
   return url + (url.includes("?") ? "&" : "?") + "v=" + encodeURIComponent(appVersion);
 }
 
-function storageKeyWrong(themeId){ return `asa_wrong_${themeId}`; }
-function storageKeyDone(themeId){ return `asa_done_${themeId}`; }
+function storageKeyMastery(themeId){ return `asa_mastery_${themeId}`; }
 
-function loadWrong(themeId){
+function loadMastery(themeId){
   try{
-    const raw = localStorage.getItem(storageKeyWrong(themeId));
-    const arr = raw ? JSON.parse(raw) : [];
-    wrongIds = new Set(Array.isArray(arr) ? arr : []);
-  }catch(_){ wrongIds = new Set(); }
-  updateReviewButtonLabel();
+    const raw = localStorage.getItem(storageKeyMastery(themeId));
+    const obj = raw ? JSON.parse(raw) : {};
+    mastery = (obj && typeof obj === "object") ? obj : {};
+  }catch(_){
+    mastery = {};
+  }
 }
-function saveWrong(){
+function saveMastery(){
   if(!currentThemeId) return;
-  localStorage.setItem(storageKeyWrong(currentThemeId), JSON.stringify(Array.from(wrongIds)));
+  localStorage.setItem(storageKeyMastery(currentThemeId), JSON.stringify(mastery));
 }
 
-function loadDone(themeId){
-  try{
-    const raw = localStorage.getItem(storageKeyDone(themeId));
-    const arr = raw ? JSON.parse(raw) : [];
-    doneIds = new Set(Array.isArray(arr) ? arr : []);
-  }catch(_){ doneIds = new Set(); }
-}
-function saveDone(){
-  if(!currentThemeId) return;
-  localStorage.setItem(storageKeyDone(currentThemeId), JSON.stringify(Array.from(doneIds)));
+function ensureIds(arr){
+  // au cas où une carte n’a pas d’id → id stable par index
+  return arr.map((c, i) => {
+    if(!c || typeof c !== "object") return { id:`auto_${i}`, q:"", a:"" };
+    if(!c.id) c.id = `auto_${i}`;
+    return c;
+  });
 }
 
-function updateReviewButtonLabel(){
-  reviewWrongBtn.textContent = reviewMode ? "↩️ Revenir au thème" : "⛔ Revoir les faux";
+function computeActiveCards(){
+  return fullCards.filter(c => (mastery[c.id] || 0) < MASTERY_THRESHOLD);
 }
 
-function isThemeFinished(){
-  if(reviewMode) return false;
-  if(!fullCards.length) return false;
-  const allHaveId = fullCards.every(c => c && c.id);
-  if(allHaveId) return doneIds.size >= fullCards.length;
-  return false;
+function masteredCount(){
+  let n = 0;
+  for(const c of fullCards){
+    if((mastery[c.id] || 0) >= MASTERY_THRESHOLD) n++;
+  }
+  return n;
+}
+
+function pickRandomCard(){
+  if(!activeCards.length){
+    currentCard = null;
+    return;
+  }
+  const idx = Math.floor(Math.random() * activeCards.length);
+  currentCard = activeCards[idx];
 }
 
 function lockMarkButtons(locked){
   justeBtn.disabled = locked;
   fauxBtn.disabled = locked;
+}
+
+function isThemeFinished(){
+  return fullCards.length > 0 && activeCards.length === 0;
+}
+
+function updateStatsLine(){
+  const total = fullCards.length;
+  const done = masteredCount();
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  const rest = activeCards.length;
+  statsLine.textContent = `${done}/${total} • ${pct}% • Reste: ${rest}`;
 }
 
 function render(){
@@ -343,19 +361,25 @@ function render(){
 
     finishBtn.classList.remove("hidden");
 
-    // Masquer tout
     showAnswerBtn.classList.add("hidden");
     justeBtn.classList.add("hidden");
     fauxRow.classList.add("hidden");
     skipRow.classList.add("hidden");
 
-    statsLine.textContent = `${fullCards.length} / ${fullCards.length} (terminé)`;
+    // stats final
+    const total = fullCards.length;
+    const done = masteredCount();
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    statsLine.textContent = `${done}/${total} • ${pct}% (terminé)`;
     return;
   } else {
     finishBtn.classList.add("hidden");
+    showAnswerBtn.classList.remove("hidden");
+    justeBtn.classList.remove("hidden");
+    skipRow.classList.remove("hidden");
   }
 
-  if(!cards.length){
+  if(!fullCards.length){
     qText.textContent="Aucune carte.";
     aText.textContent=""; aText.classList.add("hidden");
     qImg.classList.add("hidden"); qImg.removeAttribute("src");
@@ -364,7 +388,6 @@ function render(){
     fauxRow.classList.add("hidden");
     skipRow.classList.remove("hidden");
 
-    // Swap état "pas de réponse"
     showAnswerBtn.classList.remove("swapHide");
     justeBtn.classList.add("swapHide");
 
@@ -373,7 +396,11 @@ function render(){
     return;
   }
 
-  const card = cards[currentIndex];
+  if(!currentCard){
+    pickRandomCard();
+  }
+  const card = currentCard;
+
   qText.textContent = card.q || "";
 
   if(card.img){
@@ -385,10 +412,10 @@ function render(){
   }
 
   if(state.showAnswer && card.a && card.a.trim()!==""){
-    aText.textContent=card.a;
+    aText.textContent = card.a;
     aText.classList.remove("hidden");
   }else{
-    aText.textContent="";
+    aText.textContent = "";
     aText.classList.add("hidden");
   }
 
@@ -400,7 +427,7 @@ function render(){
     aImg.removeAttribute("src");
   }
 
-  // ✅ Controls (swap + UX pouce)
+  // Swap + UX pouce
   showAnswerBtn.classList.toggle("swapHide", state.showAnswer);
   justeBtn.classList.toggle("swapHide", !state.showAnswer);
 
@@ -409,117 +436,66 @@ function render(){
 
   lockMarkButtons(!state.showAnswer);
 
-  // Stats line
-  const base = `${currentIndex+1} / ${cards.length}`;
-  if(!reviewMode && fullCards.length){
-    const done = doneIds.size;
-    statsLine.textContent = `${base} • Fait: ${done}/${fullCards.length}`;
-  }else{
-    statsLine.textContent = base;
-  }
+  updateStatsLine();
 }
 
-function next(){
-  state.showAnswer=false;
-  currentIndex = (currentIndex+1) % cards.length;
+function nextRandom(){
+  state.showAnswer = false;
+  pickRandomCard();
   render();
 }
 
-function shuffleInPlace(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]] = [arr[j],arr[i]];
-  }
-}
-
 showAnswerBtn.addEventListener("click", ()=>{
-  state.showAnswer=true;
+  state.showAnswer = true;
   render();
 });
 
 skipBtn.addEventListener("click", ()=>{
-  if(cards.length<=1) return;
-  const c = cards.splice(currentIndex,1)[0];
-  cards.push(c);
-  if(currentIndex >= cards.length) currentIndex = 0;
-  state.showAnswer=false;
-  render();
+  // aléatoire automatique : on repioche juste
+  nextRandom();
 });
-
-function markDoneForCurrentCard(){
-  if(reviewMode) return;
-  const c = cards[currentIndex];
-  if(c && c.id){
-    doneIds.add(c.id);
-    saveDone();
-  }
-}
 
 justeBtn.addEventListener("click", ()=>{
   if(!state.showAnswer) return;
-  const c = cards[currentIndex];
-  if(c && c.id){ wrongIds.delete(c.id); saveWrong(); }
-  markDoneForCurrentCard();
-  next();
+  const c = currentCard;
+  if(!c) return;
+
+  const v = (mastery[c.id] || 0) + 1;
+  mastery[c.id] = Math.min(MASTERY_THRESHOLD, v);
+  saveMastery();
+
+  // recalcul des cartes actives : si atteint 3, elle disparaît
+  activeCards = computeActiveCards();
+
+  // pioche suivante
+  currentCard = null;
+  nextRandom();
 });
 
 fauxBtn.addEventListener("click", ()=>{
   if(!state.showAnswer) return;
-  const c = cards[currentIndex];
-  if(c && c.id){ wrongIds.add(c.id); saveWrong(); }
-  markDoneForCurrentCard();
-  next();
-});
+  const c = currentCard;
+  if(!c) return;
 
-shuffleBtn.addEventListener("click", ()=>{
-  if(!cards.length) return;
-  shuffleInPlace(cards);
-  currentIndex = 0;
-  state.showAnswer = false;
-  render();
-});
+  // logique simple : si faux, on remet la maîtrise à 0 (ça revient plus souvent)
+  mastery[c.id] = 0;
+  saveMastery();
 
-reviewWrongBtn.addEventListener("click", ()=>{
-  if(!currentThemeId) return;
-
-  if(reviewMode){
-    reviewMode = false;
-    cards = fullCards.slice();
-    currentIndex = 0;
-    state.showAnswer = false;
-    updateReviewButtonLabel();
-    render();
-    return;
-  }
-
-  const list = fullCards.filter(c => c && c.id && wrongIds.has(c.id));
-  if(!list.length){
-    alert("Aucune question marquée comme fausse pour ce thème.");
-    return;
-  }
-  reviewMode = true;
-  cards = list;
-  currentIndex = 0;
-  state.showAnswer = false;
-  updateReviewButtonLabel();
-  render();
+  activeCards = computeActiveCards();
+  currentCard = null;
+  nextRandom();
 });
 
 resetStatsBtn.addEventListener("click", ()=>{
   if(!currentThemeId) return;
-  if(confirm("Réinitialiser la liste des questions fausses et le 'fait' pour ce thème ?")){
-    wrongIds = new Set();
-    doneIds = new Set();
-    saveWrong();
-    saveDone();
+  if(confirm("Réinitialiser la progression de ce thème ? (Toutes les questions reviennent)")){
+    mastery = {};
+    saveMastery();
 
-    if(reviewMode){
-      reviewMode = false;
-      updateReviewButtonLabel();
-    }
-    cards = fullCards.slice();
-    currentIndex = 0;
+    activeCards = computeActiveCards();
+    currentCard = null;
     state.showAnswer = false;
+
     render();
   }
 });
@@ -537,18 +513,17 @@ themeSelect.addEventListener("change", e=>loadTheme(e.target.value));
 async function loadTheme(id){
   const t = THEMES_INDEX?.themes?.find(x=>x.id===id);
   if(!t){
-    cards=[]; fullCards=[]; currentThemeId=null;
+    fullCards=[]; activeCards=[]; currentThemeId=null; currentCard=null;
     qText.textContent="Thème introuvable.";
     render();
     return;
   }
 
   currentThemeId = id;
-  reviewMode = false;
-  updateReviewButtonLabel();
+  state.showAnswer = false;
+  currentCard = null;
 
-  loadWrong(id);
-  loadDone(id);
+  loadMastery(id);
 
   try{
     const r = await fetch(withBust(t.file), {cache:"no-store"});
@@ -556,14 +531,13 @@ async function loadTheme(id){
     const data = await r.json();
     if(!Array.isArray(data.cards)) throw new Error("JSON invalide: cards manquant");
 
-    fullCards = data.cards.slice();
-    cards = fullCards.slice();
-    currentIndex=0; state.showAnswer=false;
+    fullCards = ensureIds(data.cards.slice());
+    activeCards = computeActiveCards();
 
     render();
     setOfflineLabel(true);
   }catch(e){
-    cards=[]; fullCards=[]; currentIndex=0; state.showAnswer=false;
+    fullCards=[]; activeCards=[]; currentCard=null; state.showAnswer=false;
     qText.textContent = `Erreur de chargement du thème: ${t.file}`;
     aText.textContent = String(e);
     aText.classList.remove("hidden");
@@ -588,7 +562,7 @@ async function loadIndex(){
     themeSelect.innerHTML = idx.themes.map(t=>`<option value="${t.id}">${t.name}</option>`).join("");
     await loadTheme(idx.themes[0].id);
 
-    refreshNetworkLabel(); // ✅ lance la mini-ligne réseau dès le start
+    refreshNetworkLabel();
 
     if("serviceWorker" in navigator){
       navigator.serviceWorker.register(withBust("sw.js")).catch(()=>{});
