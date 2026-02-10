@@ -45,7 +45,7 @@
     {
       "id": "q010",
       "q": "Que veut dire la méthode T-A-B ?",
-      "a": "C’est l’évaluation des routes\nT = TRACE (le tracé de la route : droit, sinueux, virage, courbe, …)\nA = ABBORDS (trottoir, route, rien, piéton, travaux, …)\nB = BASE (goudronné, pavé, gravier, mouillé, feuilles, trous, …)"
+      "a": "C’est l’évaluation des routes\nT = TRACE (le tracé de la route : droit, sinueux, virage, courbe, …)\nA = ABBORDS (trottoir, route, rien, piéton, travaux,marquage au sol …)\nB = BASE (goudronné, pavé, gravier, mouillé, feuilles, trous, …)"
     },
     {
       "id": "q011",
@@ -64,13 +64,13 @@
     },
     {
       "id": "q014",
-      "q": "Qu’est-ce que la sensibilisation aux problèmes du trafic routier ?",
+      "q": "A quoi sert la sensibilisation aux problèmes du trafic routier ?",
       "a": "Cela sert a développer le sens de circulation et familiarise avec les dangers de la circulation"
     },
     {
       "id": "q015",
       "q": "Quels sont les buts de la théorie de la circulation ?",
-      "a": "Reconnaître les dangers\nVoir les dangers\nAnticiper les dangers"
+      "a": "Voir, reconnaître et anticiper les dangers"
     },
     {
       "id": "q016",
@@ -125,7 +125,7 @@
     {
       "id": "q026",
       "q": "Qu’est-ce qu’une conduite sûre ?",
-      "a": "C’est l’interaction de 3 éléments :\nLe conducteur doit être en forme\nLe véhicule doit être en bon état\nLe conducteur doit reconnaître les dangers"
+      "a": "C’est l’interaction de 3 éléments :\nLe conducteur doit être en forme\nLe véhicule doit être en bon état\nLe conducteur doit reconnaître les dangers dans l'environnement"
     },
     {
       "id": "q027",
@@ -165,12 +165,12 @@
     {
       "id": "q034",
       "q": "A quoi sert l’ouïe ?",
-      "a": "Capacité à entendre et interpréter les sons.ex:enfants,klaxon,sirène"
+      "a": "Capacité à entendre et interpréter les sons. Ex:enfants,klaxon,sirène etc.."
     },
     {
       "id": "q035",
       "q": "A quoi sert le toucher ?",
-      "a": "Mains, tenir son volant Pieds, pression sur les pédales Fesses/siège Dos/dossier sentir la force centrifuge"
+      "a": "Mains, tenir son volant\nPieds, presser sur les pédales\nFesses/siège Dos/dossier, sentir la force centrifuge"
     },
     {
       "id": "q036",
