@@ -5,7 +5,7 @@
     {
       "id": "q001",
       "q": "A quoi sert la Méthode A-A-I ?",
-      "a": "C’est l’évaluation des partenaires, Lorsque l’un des éléments amène le doute…\nPasser du principe de confiance à celui de sécurité."
+      "a": "C’est l’évaluation des partenaires, Lorsque on a un doute, il faut passer du principe de confiance à celui de sécurité."
     },
     {
       "id": "q003",
@@ -65,7 +65,7 @@
     {
       "id": "q014",
       "q": "Qu’est-ce que la sensibilisation aux problèmes du trafic routier ?",
-      "a": "C’est un cours qui sert à développer le sens de circulation et familiarise avec les dangers de la circulation"
+      "a": "Cela sert a développer le sens de circulation et familiarise avec les dangers de la circulation"
     },
     {
       "id": "q015",
@@ -125,7 +125,7 @@
     {
       "id": "q026",
       "q": "Qu’est-ce qu’une conduite sûre ?",
-      "a": "C’est l’interaction de 3 éléments :\nLe conducteur doit être en forme\nLe véhicule doit être en bon état\nLe conducteur doit connaître la route et sans dangers"
+      "a": "C’est l’interaction de 3 éléments :\nLe conducteur doit être en forme\nLe véhicule doit être en bon état\nLe conducteur doit reconnaître les dangers"
     },
     {
       "id": "q027",
@@ -135,7 +135,7 @@
     {
       "id": "q028",
       "q": "Comment identifier un danger ?",
-      "a": "Déterminer si une situation pourrait causer un préjudice\nPerception des dangers\nAnalyser, évaluer le risque Déterminer quoi faire pour éliminer le danger"
+      "a": "Déterminer si une situation pourrait causer un préjudice\nPercevoir les dangers\nAnalyser, évaluer le risque et déterminer que faire pour éliminer le danger"
     },
     {
       "id": "q029",
@@ -144,7 +144,7 @@
     },
     {
       "id": "q030",
-      "q": "Qu’est ce qui influence cette zone ?",
+      "q": "Qu’est ce qui influence cette zone (dynomène) ?",
       "a": "L’anticipation et l’expérience"
     },
     {
@@ -160,17 +160,17 @@
     {
       "id": "q033",
       "q": "A quoi sert la vue ?",
-      "a": "S’orienter dans l’espace\nSuivre la route (regard dirigé)\nDétecter et identifier les obstacles\nAdapter son comportement moteur"
+      "a": "S’orienter dans l’espace\nSuivre la route \nDétecter et identifier les obstacles\nAdapter son comportement moteur"
     },
     {
       "id": "q034",
       "q": "A quoi sert l’ouïe ?",
-      "a": "Capacité à entendre et interpréter les sons."
+      "a": "Capacité à entendre et interpréter les sons.ex:enfants,klaxon,sirène"
     },
     {
       "id": "q035",
       "q": "A quoi sert le toucher ?",
-      "a": "Mains/volant Pieds/pédales Fesses/siège Dos/dossier"
+      "a": "Mains, tenir son volant Pieds, pression sur les pédales Fesses/siège Dos/dossier sentir la force centrifuge"
     },
     {
       "id": "q036",
