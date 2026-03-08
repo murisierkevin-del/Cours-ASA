@@ -1,0 +1,171 @@
+{
+  "id": "cours-pratique",
+  "name": "Cours pratique",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "Quelles ont été les dates de mesure de bruit à l’arrêt (Z) ?",
+      "a": "(1.07.1977 – 1.10.1977) – (1.01.1980 – 1.10.1996)"
+    },
+    {
+      "id": "q002",
+      "q": "Comment se réalise une mesure de bruit à l’arrêt (Z) ?",
+      "a": "7 mètres du bord de la carrosserie\nMilieu du véhicule en longueur\nMicro a 1,2m de hauteur\n2 mesures par côté (écart max 1 dB/A)\nPrendre la valeur la plus haute\nDir. 6 chiffre 151\nTolérance max 2 dB/A\n¾ du régime de puissance et régime stabilisé"
+    },
+    {
+      "id": "q003",
+      "q": "Quelles ont été les dates de mesure de bruit à proximité (Y) ?",
+      "a": "(1.10.1977 -1.01.1980) – (1.10.1996 – aujourd’hui)"
+    },
+    {
+      "id": "q004",
+      "q": "Qui est agrée pour contrôler les outils nécessaires à une mesure de bruit et périodicité ?",
+      "a": "Chaque 2 ans par le METAS"
+    },
+    {
+      "id": "q005",
+      "q": "Comment se réalise une mesure de bruit à proximité (y) ?",
+      "a": "A 50 cm de la sortie d’échappement et à la même hauteur, mais au moins à 20 cm du sol et à un angle de 45°.\n3 mesures (écart max 2 dB/A)\nPrendre la valeur la plus haute\nDir 6 : chiffre 148\nTolérance 5dB/A\n75% du régime de puissance (avant 06.07.2008)\n75% quand le régime est moins de 5000 t/min.\n3750 t/min quand le régime de puissance est compris entre 5000 et 7500 t/min.\n50% quand le régime est plus de 7500 t/min."
+    },
+    {
+      "id": "q006",
+      "q": "Comment mesure-t-on des véhicules vétérans ou de collection ou il n’existe aucune norme ou des valeurs en Phones ou dB/B. ?",
+      "a": "75% du régime de puissance max stabilisé, à 7 mètres.\nValeur limite de 84 dB/A\nUne tolérance de 2 dB/A"
+    },
+    {
+      "id": "q007",
+      "q": "Comment mesure t’on a proximité s’il y a plusieurs sorties d’un même silencieux ?",
+      "a": "Prendre la plus extérieure\nSi elles sont distantes de plus de 30 cm mesurer séparément."
+    },
+    {
+      "id": "q008",
+      "q": "Ou mesure t on les sorties d’échappements situées sous le Véhicule ?",
+      "a": "Le microphone doit être placé à au moins 20 cm de la partie du véhicule la plus proche.\nR 51 annexe 3 chiffre 3.2.5.3.1"
+    },
+    {
+      "id": "q009",
+      "q": "Qui est agrée pour contrôler les appareils antipollution et périodicité ?",
+      "a": "Chaque 2 ans par le METAS"
+    },
+    {
+      "id": "q010",
+      "q": "A partir de quelle norme (champs 27 permis de circulation) le test antipollution n’est plus nécessaire ?",
+      "a": "B03 Essence\nB04 Diesel"
+    },
+    {
+      "id": "q011",
+      "q": "Si lors de l’expertise on a un doute sur la pollution du véhicule, de combien la valeur ne devrait pas dépasser (essence et diesel) ?",
+      "a": "0.2 de CO pour essence OBD\nDiesel se référer à la RT ou COC (VALEUR K-1) ou plaquette constructeur\nTolérance : si valeur K-1 inférieures à 1 rajouter 0,3\nSi supérieurs à 1 multiplier par 0.3 et rajouter 1"
+    },
+    {
+      "id": "q012",
+      "q": "A partir de quelles année les tests antipollution sur les véhicules essence et diesel sont obligatoire ?",
+      "a": "Immatriculé à partir du 1 er janvier 1976."
+    },
+    {
+      "id": "q013",
+      "q": "Que faut-il faire si le carnet d’antipollution a été perdu ?",
+      "a": "Il faut en redemander un dans un garage de la marque ou à l’association des importateurs suisse (autoschweiz)"
+    },
+    {
+      "id": "q014",
+      "q": "Quel est l’efficacité minimum pour l’homologation du Frein de Service M1 ?",
+      "a": "5.8M/s2 à 100 km/h Force : 500 N"
+    },
+    {
+      "id": "q015",
+      "q": "Quel est l’efficacité minimum pour l’homologation du frein auxiliaire M1 ?",
+      "a": "2.44m/s2 100 km/h Force : 500 N pied et main"
+    },
+    {
+      "id": "q016",
+      "q": "Quel est l’efficacité minimum pour l’homologation Frein de stationnement M1 ?",
+      "a": "Pente a 20% véhicule et avec remorque 12%"
+    },
+    {
+      "id": "q017",
+      "q": "Quel est l’efficacité minimum pour l’homologation du Frein de Service N1 ?",
+      "a": "5.0m/s2 à 80 km/h Force :700 N"
+    },
+    {
+      "id": "q018",
+      "q": "Quel est l’efficacité minimum pour l’homologation du frein auxiliaire N1 ?",
+      "a": "2.2m/s2 à 70 km/h F :700 pieds ; F :600 N main"
+    },
+    {
+      "id": "q019",
+      "q": "Quel est l’efficacité minimum pour l’homologation Frein de stationnement N1 ?",
+      "a": "Pente a 18% véhicule et avec remorque 12%"
+    },
+    {
+      "id": "q020",
+      "q": "Quel est la formule pour calculer le taux de freinage ?",
+      "a": "((Forces de freinage N / (masse en kg x 9.81)) x 100"
+    },
+    {
+      "id": "q021",
+      "q": "Quel est le taux de freinage minimum pour le frein de service M1 sur un banc de frein ?",
+      "a": "58%"
+    },
+    {
+      "id": "q022",
+      "q": "Quel est le taux de freinage minimum pour le frein de service N1 sur un banc de frein ?",
+      "a": "50%"
+    },
+    {
+      "id": "q023",
+      "q": "Quel est le taux de freinage minimum pour le frein de stationnement M1 sur un banc de frein ?",
+      "a": "16%"
+    },
+    {
+      "id": "q024",
+      "q": "Quel est le taux de freinage minimum pour le frein de stationnement N1 sur un banc de frein ?",
+      "a": "16%"
+    },
+    {
+      "id": "q025",
+      "q": "Selon ASA SAQ, quand est-ce qu’un défaut d’efficacité des freins est majeur ?",
+      "a": "Moins de 58% pour M1\nMoins de 50% pour N1"
+    },
+    {
+      "id": "q026",
+      "q": "Selon ASA SAQ, quand est-ce qu’un défaut d’efficacité des freins est critique ?",
+      "a": "Si moins de 50 % des valeurs minimale sont atteintes donc moins de 29% pour M1 et 25% pour N1"
+    },
+    {
+      "id": "q027",
+      "q": "Pour les véhicules M1, N1, N2 (moins de 8T), O1 et O2, quelle est la hauteur minimale de la barre anti-encastrement arrière ?",
+      "a": "100 mm (10 cm)."
+    },
+    {
+      "id": "q028",
+      "q": "Pour les véhicules M1, N1, N2 (moins de 8T), O1 et O2, quelle est la distance maximale entre l’arrière du véhicule et le dispositif anti-encastrement arrière ?",
+      "a": "400 mm (40cm)"
+    },
+    {
+      "id": "q029",
+      "q": "Pour les véhicules M1, N1 et N2 (moins de 8T), quelle est la largeur minimale de la barre anti-encastrement arrière ?",
+      "a": "100 mm (10 cm) plus courte de chaque côté que le bords extérieur du pneu"
+    },
+    {
+      "id": "q030",
+      "q": "Pour les véhicules équipés d’une plateforme élévatrice (RT dès le 11.09.2007 ou importés/immatriculés en Suisse dès le 11.03.2010), quelle est la distance maximale entre la partie en mouvement (ex. vérins) et le dispositif anti-encastrement ?",
+      "a": "25 mm (2,5 cm)"
+    },
+    {
+      "id": "q031",
+      "q": "Pour les véhicules avec plateforme élévatrice (RT dès le 11.09.2007 ou importés/immatriculés en Suisse dès le 11.03.2010), quelle est la surface minimale des éléments pour un profil de 100 mm ?",
+      "a": "350 cm²"
+    },
+    {
+      "id": "q032",
+      "q": "Pour les véhicules avec plateforme élévatrice (RT avant 11.09.2007 ou importés/immatriculés en Suisse avant le 11.03.2010, quelle est la distance maximale entre la partie en mouvement (ex : vérins) et le dispositif anti-encastrement ?",
+      "a": "50 mm (5 cm)"
+    },
+    {
+      "id": "q033",
+      "q": "Comment mesure-t-on la profondeur entre l’arrière du véhicule et dispositif anti-encastrement ?",
+      "a": "Depuis le point le plus arrière du véhicule, en tenant compte des éléments comme la plateforme élévatrice. Les éléments dépassant de moins de 50 mm (butées, caoutchouc, charnières, serrures, éclairage) et les éléments situés a plus de 2 mètres du sol ne sont pas pris en considération."
+    }
+  ]
+}
