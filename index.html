@@ -86,7 +86,7 @@
       flex:1;
       overflow:auto;
       -webkit-overflow-scrolling:touch;
-      padding-bottom: calc(140px + env(safe-area-inset-bottom));
+      padding-bottom: calc(190px + env(safe-area-inset-bottom));
     }
 
     .card{
@@ -145,6 +145,11 @@
 
     .hidden{ display:none !important; }
 
+    .invisible{
+      visibility:hidden;
+      pointer-events:none;
+    }
+
     /* 🔁 Swap “Voir la réponse” ↔ “Juste” (même place) */
     .swapWrap{
       position: relative;
@@ -185,7 +190,7 @@
       <span class="pill muted">Version contenu: <span id="contentVersion">—</span></span>
       <span class="pill muted">Réseau: <span id="offlineLabel">—</span></span>
 
-      <button class="btn" id="resetStatsBtn" title="Réinitialiser la progression (toutes les questions reviennent)">♻️ Réinitialiser le thème</button>
+      <button class="btn" id="resetStatsBtn" title="Réinitialiser la progression du thème (toutes les questions reviennent)">♻️ Réinitialiser le thème</button>
     </div>
 
     <main>
@@ -205,16 +210,16 @@
 
       <div class="row">
         <div class="swapWrap">
-          <button class="actionBtn primary swapBtn" id="showAnswerBtn">👁 Voir la réponse</button>
-          <button class="actionBtn good swapBtn swapHide" id="justeBtn" disabled>✅ Juste</button>
+          <button class="actionBtn primary swapBtn" id="showAnswerBtn">Voir la réponse</button>
+          <button class="actionBtn good swapBtn swapHide" id="justeBtn" disabled>Juste</button>
         </div>
       </div>
 
-      <div class="row hidden" id="fauxRow">
-        <button class="actionBtn bad" id="fauxBtn" disabled>❌ Faux</button>
+      <div class="row invisible" id="fauxRow">
+        <button class="actionBtn bad" id="fauxBtn" disabled>Faux</button>
       </div>
 
-      <button class="actionBtn gold hidden" id="finishBtn">🎉 Thème terminé – changer de thème</button>
+      <button class="actionBtn gold hidden" id="finishBtn">🎉👏🏻 Thème terminé – Détends-toi 🍻💃🏼 et change de thème</button>
     </div>
   </div>
 
@@ -225,7 +230,7 @@
   - Quand on arrive au bout, on recommence au début
   - Révision intelligente : après 3x “Juste”, la question disparaît
   - Stat progression en % (maîtrisées / total)
-  - “Réinitialiser le thème” : remet TOUTES les questions du thème
+  - “Réinitialiser le thème” : remet toutes les questions du thème courant
 */
 
 const $ = (id)=>document.getElementById(id);
@@ -378,7 +383,7 @@ function render(){
     qImg.classList.add("hidden"); qImg.removeAttribute("src");
     aImg.classList.add("hidden"); aImg.removeAttribute("src");
 
-    fauxRow.classList.add("hidden");
+    fauxRow.classList.add("invisible");
 
     showAnswerBtn.classList.remove("swapHide");
     justeBtn.classList.add("swapHide");
@@ -423,7 +428,7 @@ function render(){
   showAnswerBtn.classList.toggle("swapHide", state.showAnswer);
   justeBtn.classList.toggle("swapHide", !state.showAnswer);
 
-  fauxRow.classList.toggle("hidden", !state.showAnswer);
+  fauxRow.classList.toggle("invisible", !state.showAnswer);
 
   lockMarkButtons(!state.showAnswer);
 
