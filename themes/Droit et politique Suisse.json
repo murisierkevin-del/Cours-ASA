@@ -1,0 +1,266 @@
+{
+  "id": "droit-suisse",
+  "name": "Droit et Suisse",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "Qu’est-ce que le droit ?",
+      "a": "Ensemble des règles (lois) qui régissent la conduite de l’être humain dans la société."
+    },
+    {
+      "id": "q002",
+      "q": "Quel est l’ordre d’importance qui forme le droit ?",
+      "a": "La loi -> la jurisprudence -> la doctrine -> la coutume."
+    },
+    {
+      "id": "q003",
+      "q": "3.Qu’est-ce que la loi ?",
+      "a": "C’est une règle juridique écrite, générale et abstraite, qui s’applique à toutes les personnes."
+    },
+    {
+      "id": "q004",
+      "q": "Qu’est-ce que la jurisprudence ?",
+      "a": "Ensemble des décisions judiciaires passées qui servent de références pour juger des cas similaires. Permet une égalité de traitement."
+    },
+    {
+      "id": "q005",
+      "q": "Qu’est-ce que la doctrine ?",
+      "a": "Ensemble de documents créé part des spécialiste de droit pour mieux comprendre la loi."
+    },
+    {
+      "id": "q006",
+      "q": "Qu’est-ce que la coutume ?",
+      "a": "C’est une règle qui nait par habitude et que tout le monde respecte. Elle peut être utilisée par un juge si la loi n’est pas précise."
+    },
+    {
+      "id": "q007",
+      "q": "Quelle est la hiérarchie des normes juridiques ?",
+      "a": "-Les traités internationaux (convention de Vienne) -La constitution fédérale -Les lois / les codes (code civil suisse, codes des obligations) -Les ordonnances (OAC, OETV, OCR,) -Les règlements (règlement de service de l’armée suisse) -Les directives (ASA, OFROU)"
+    },
+    {
+      "id": "q008",
+      "q": "Qu’est-ce que le droit public ?",
+      "a": "Ensemble des règles qui régissent le rapport entre l’état et les citoyens"
+    },
+    {
+      "id": "q009",
+      "q": "Qu’est-ce que le droit privé ?",
+      "a": "Ensemble des règles  qui régissent les rapports des citoyens entre eux"
+    },
+    {
+      "id": "q010",
+      "q": "De quoi se compose le droit public ?",
+      "a": "-Droit constitutionnel (organise l’état et fixe les règles fondamentales du pays) -Droit administratif (Fixe les règles que l’administration doit respecter) -Droit pénal (Fixe les comportements interdits et les peines pour les punir. Pour la paix publique) -Droit fiscal (Fixe les règles concernant les impôts, les redevances, taxes TVA, …)"
+    },
+    {
+      "id": "q011",
+      "q": "De quoi se compose le droit privé ?",
+      "a": "-Droit civil -Droit des obligations"
+    },
+    {
+      "id": "q012",
+      "q": "Quest ce qu’une nation ?",
+      "a": "Communauté sociale unie par la race, la langue, la culture et les coutumes (Catalans, Ecossais, Corse …) Partage les mêmes traditions et ont un sentiment d’appartenance"
+    },
+    {
+      "id": "q013",
+      "q": "Quest ce qu’un état ?",
+      "a": "Notion de droit Organisation politique reconnue juridiquement"
+    },
+    {
+      "id": "q014",
+      "q": "Quels sont les éléments essentiels d’un Etat ?",
+      "a": "-Un territoire fixe\t-Un but social (constitution fédérale) -Une population\t-Un gouvernement"
+    },
+    {
+      "id": "q015",
+      "q": "Quels sont les différents types d’Etats ?",
+      "a": "-Etat simple (France, Espagne) tous soumis au même et unique pouvoir -Confédération d’états : (ONU, Union européenne, …) Union de plusieurs états qui coopère dans certains domaine. -Etat fédérale : (Suisse, Etats unis, Allemagne, …) Composé de plusieurs entités autonomes dotés de leur propre gouvernement, un Etat unique."
+    },
+    {
+      "id": "q016",
+      "q": "Citez différentes formes de gouvernement ?",
+      "a": "a) La monarchie absolue\tb) La monarchie constitutionnelle c) Démocratie directe\td) Démocratie représentative e) Démocratie mixte\tf) La république autoritaire"
+    },
+    {
+      "id": "q017",
+      "q": "Quest ce que la démocratie directe ?",
+      "a": "Les citoyens exercent directement le pouvoir sans représentants. Réunir tout le monde et voter. Les cantons d’Appenzell Rhodes Intérieures, Glaris"
+    },
+    {
+      "id": "q018",
+      "q": "Quest ce que la démocratie représentative ?",
+      "a": "Une assemblée qui représente le peuple. Les représentants sont élus et détiennent le pouvoir. France, Italie, …"
+    },
+    {
+      "id": "q019",
+      "q": "Quest ce que la démocratie mixte ?",
+      "a": "Le peuple élit ses représentants mais reste consulté (referendum), peut agir directement (initiative) Suisse est l’exemple type (les cantons sont également représentés)"
+    },
+    {
+      "id": "q020",
+      "q": "Quest ce que la république autoritaire ?",
+      "a": "L’organisation dirigeante est le seul détenteur de tous les pouvoirs. La Russie de Vladimir Poutine, Tunisie de Ben Ali, Syrie de Bachar el-Assad…"
+    },
+    {
+      "id": "q021",
+      "q": "Quels sont les trois pouvoirs de l’Etat ?",
+      "a": "-Législatif (élaboration des lois) -Exécutif (exécution des lois, gestion de l’état) -Judiciaire (rend la justice en appliquant les lois)"
+    },
+    {
+      "id": "q022",
+      "q": "Qui détient le pouvoir législatif ?",
+      "a": "-Les deux chambres fédérales formées de représentants du peuple. (En Suisse : Conseil national et Conseil des Etats)"
+    },
+    {
+      "id": "q023",
+      "q": "Qui détient le pouvoir exécutif ?",
+      "a": "Le gouvernement (Conseil fédéral) responsable de la bonne gestion de l’Etat."
+    },
+    {
+      "id": "q024",
+      "q": "Qui détient le pouvoir judiciaire ?",
+      "a": "Les juges dans les tribunaux civils (droit privé), pénaux (droit pénal), administratif (administration publique), militaire (justice militaire)"
+    },
+    {
+      "id": "q025",
+      "q": "Que règle la constitution Suisse ?",
+      "a": "Elle règle la structure de l’état, son territoire et sa population. Elle fixe les tâches, la composition des organes de l’Etat, ses attributions et leur fonctionnement."
+    },
+    {
+      "id": "q026",
+      "q": "À qui appartient la souveraineté de la Suisse ?",
+      "a": "Au peuple, c’est lui qui a tous les pouvoirs par les élections des représentants."
+    },
+    {
+      "id": "q027",
+      "q": "Quels sont les trois droits politiques ?",
+      "a": "-Le droit d’élire -Le droit d’être élu -Le droit de vote"
+    },
+    {
+      "id": "q028",
+      "q": "Quelles sont les conditions en Suisse pour bénéficier des droits politiques ?",
+      "a": "Être Suisse et avoir 18 ans et avoir les capacités de discernement"
+    },
+    {
+      "id": "q029",
+      "q": "Quel est le but du droit d’initiative ?",
+      "a": "Révision totale ou partielle de la constitution. (100'000 citoyens)"
+    },
+    {
+      "id": "q030",
+      "q": "Quels sont les deux types de référendum existant ?",
+      "a": "-Le référendum obligatoire -Le referendum facultatif (50'000 citoyens)"
+    },
+    {
+      "id": "q031",
+      "q": "Quest ce que la majorité absolue ?",
+      "a": "50% +1voix"
+    },
+    {
+      "id": "q032",
+      "q": "Quest ce que la majorité relative ?",
+      "a": "Plus grand nombre de voix obtenues par candidats."
+    },
+    {
+      "id": "q033",
+      "q": "Qu’est-ce que la circonscription ?",
+      "a": "Division du territoire effectuée dans le cadre d’une élection"
+    },
+    {
+      "id": "q034",
+      "q": "De quoi sont composé l’assemblée fédérale ?",
+      "a": "Du Conseil national 200.  et du Conseil des Etats 46."
+    },
+    {
+      "id": "q035",
+      "q": "Quest ce que le Conseil national ?",
+      "a": "-200 conseillers nationaux\t-Chambre basse -Représente le peuple"
+    },
+    {
+      "id": "q036",
+      "q": "Quest ce que le Conseil des Etats ?",
+      "a": "-46 Conseillers aux Etats\t-Chambre haute -Représente les cantons"
+    },
+    {
+      "id": "q037",
+      "q": "Quel est le rôle de l’assemblée fédérale ?",
+      "a": "Elle élit le Conseil fédéral et le Tribunal fédéral Elle dicute modifie et vote les lois. Elle vote le budget de la confédération"
+    },
+    {
+      "id": "q038",
+      "q": "Quels sont les 7 Conseillers fédéraux ?",
+      "a": "Karin Keller-Sutter (Présidente) \tDép. des finances -Martin Pfister\tDép. de la défense, de la protection et des sports -Guy Parmelin (vice-président)\tDép. de l’économie, de la formation et recherche -Ignazio Cassis\tDép. des affaires étrangères -Albert Rösti (DETEC )\tDép. de l’environnement, Transport, énergie, Communication -Beat Jans \tDépartement de justice et police -Elisabeth Baume-Schneider\tDép. fédéral de l’intérieur"
+    },
+    {
+      "id": "q039",
+      "q": "Citez 4 tribunaux ?",
+      "a": "Les tribunaux civils, qui règlent les conflits de droit privé Les tribunaux pénaux qui tranchent en matière pénale Les tribunaux administratifs qui se prononcent sur les décisions prises par les administrations publiques Les tribunaux militaires qui rendent la justice militaire Les tribunaux d’exception qui sont le plus souvent institués pendant des périodes troublées"
+    },
+    {
+      "id": "q040",
+      "q": "Quels sont les moyens d’agir de l’activité administrative ?",
+      "a": "Par l’ordonnance, le contrat administratif et l’acte administratif."
+    },
+    {
+      "id": "q041",
+      "q": "Qu’est-ce que l’ordonnance ?",
+      "a": "Règle (rédigé par le conseil fédéral) qui détaille l’application d’une loi."
+    },
+    {
+      "id": "q042",
+      "q": "Qu’est-ce que le contrat administratif ?",
+      "a": "C’est un accord entre l’administration et un particulier pour réaliser une tâche publique."
+    },
+    {
+      "id": "q043",
+      "q": "Qu’est-ce que l’acte administratif ?",
+      "a": "C’est une décision prise par l’administration qui crée des droits ou obligations pour une personne. (Tamponner un permis)"
+    },
+    {
+      "id": "q044",
+      "q": "Quels sont les principes du droit administratifs ?",
+      "a": "-La légalité\t-L’intérêt public\t-La proportionnalité -L’égalité de traitement\t-L’interdiction de l’arbitraire\t-La non-rétroactivité -La bonne foi\t-La transparence"
+    },
+    {
+      "id": "q045",
+      "q": "Quel est le principe de la légalité ?",
+      "a": "Respecter la loi. Si pas de loi, pas d’autorité qui s’exerce."
+    },
+    {
+      "id": "q046",
+      "q": "Quel est le principe de l’égalité de traitement ?",
+      "a": "Traiter les personnes de manière égale pour des situation similaires."
+    },
+    {
+      "id": "q047",
+      "q": "Quel est le principe de l’interdiction de l’arbitraire ?",
+      "a": "L’administration ne peut pas prendre des décisions abusive, injuste ou contraire au fait."
+    },
+    {
+      "id": "q048",
+      "q": "Quel est le principe de la bonne foi ?",
+      "a": "L’administration doit agir de manière honnête et loyale envers les citoyens"
+    },
+    {
+      "id": "q049",
+      "q": "Quel est le principe de la proportionnalité ?",
+      "a": "Une décision de l’administration ne doit pas en faire plus que nécessaire."
+    },
+    {
+      "id": "q050",
+      "q": "Quel est le principe de l’intérêt public ?",
+      "a": "Les décisions doivent être prise dans l’intérêt de la collectivité et non des intérêts privé."
+    },
+    {
+      "id": "q051",
+      "q": "Quel est le principe de la non-rétroactivité ?",
+      "a": "Une loi ne peut pas s’appliquer a une situation qui s’est produite avant sa mise en vigueur."
+    },
+    {
+      "id": "q052",
+      "q": "Quel est le principe de la transparence ?",
+      "a": "Toute personne a le droit de consulter des documents officiels et d’obtenir des renseignements sur leur contenu de la part des autorités."
+    }
+  ]
+}
