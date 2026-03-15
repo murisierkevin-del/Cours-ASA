@@ -18,6 +18,11 @@
       "file": "themes/electrotechnique.json"
     },
     {
+  "id": "droit-suisse",
+  "name": "Droit et politique Suisse",
+  "file": "themes/Droit et politique Suisse.json"
+    },
+    {
       "id": "rc",
       "name": "Responsabilité civile",
       "file": "themes/rc.json"
