@@ -38,6 +38,11 @@
       "file": "themes/profil.json"
     },
     {
+  "id": "psychologie",
+  "name": "Psychologie",
+  "file": "themes/psychologie.json"
+    },
+    {
       "id": "feux_catadioptres",
       "name": "Feux & catadioptres",
       "file": "themes/feux_catadioptres.json"
