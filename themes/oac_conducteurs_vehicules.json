@@ -1,0 +1,211 @@
+{
+  "id": "oac-conducteurs-vehicules",
+  "name": "OAC Conducteurs véhicules",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "Quels véhicules et ensembles de véhicules peut-on conduire avec le permis de catégorie B ?",
+      "a": "Voitures automobiles et tricycles à moteur jusqu’à 3’500 kg, avec au maximum 9 places, ainsi qu’un ensemble avec remorque (égal ou moins de 750 kg ou plus 750 kg si le poids d’ensemble ne dépasse pas 3’500 kg)."
+    },
+    {
+      "id": "q002",
+      "q": "Quels véhicules et ensembles de véhicules peut-on conduire avec le permis de catégorie BE ?",
+      "a": "ensembles de véhicules composés d’un véhicule tracteur de la catégorie B et d’une remorque mais qui, en tant qu’ensembles, n’entrent pas dans la catégorie B ;"
+    },
+    {
+      "id": "q003",
+      "q": "Quels véhicules peut-on conduire avec le permis de catégorie A1 ?",
+      "a": "Motocycles d’une cylindrée n’excédant pas 125 cm³ et d’une puissance maximale de 11 kW."
+    },
+    {
+      "id": "q004",
+      "q": "Quels véhicules peut-on conduire avec le permis de catégorie B1 ?",
+      "a": "Tricycles à moteur dont le poids à vide n’excède pas 670 kg et quadricycles à moteur."
+    },
+    {
+      "id": "q005",
+      "q": "Quels véhicules peut-on conduire avec le permis de catégorie F ?",
+      "a": "Véhicules automobiles dont la vitesse maximale n’excède pas 45 km/h, à l’exception des motocycles."
+    },
+    {
+      "id": "q006",
+      "q": "Quels véhicules peut-on conduire avec le permis de catégorie G ?",
+      "a": "Agricoles, forestiers, chariots de travail, chariots à moteur et tracteurs immatriculés en tant que véhicules industriels utilisés pour des courses à caractère agricole et forestier, dont la vitesse maximale n’excède pas 30 km/h, à l’exception des véhicules spéciaux."
+    },
+    {
+      "id": "q007",
+      "q": "Quels véhicules peut-on conduire avec le permis de catégorie M ?",
+      "a": "Cyclomoteurs."
+    },
+    {
+      "id": "q008",
+      "q": "Quelles catégories de véhicules sont autorisées avec le permis de catégorie A ?",
+      "a": "Les sous-catégories A1 et B1 ainsi que des catégories spéciales F, G et M."
+    },
+    {
+      "id": "q009",
+      "q": "Quelles catégories de véhicules sont autorisées avec le permis de catégorie B ?",
+      "a": "La sous-catégorie B1 et des catégories spéciales F, G et M."
+    },
+    {
+      "id": "q010",
+      "q": "Quelles catégories de véhicules sont autorisées avec le permis de sous-catégorie A1 ?",
+      "a": "Les catégories spéciales F, G et M."
+    },
+    {
+      "id": "q011",
+      "q": "Quelles catégories de véhicules sont autorisées avec le permis de sous-catégorie B1 ?",
+      "a": "Les catégories spéciales F, G et M et de luges à moteur."
+    },
+    {
+      "id": "q012",
+      "q": "Quelles catégories de véhicules sont autorisées avec le permis de catégorie spéciale F ?",
+      "a": "Les catégories spéciales G et M."
+    },
+    {
+      "id": "q013",
+      "q": "Quelles catégories de véhicules sont autorisées avec le permis de catégorie spéciale G ?",
+      "a": "La catégorie spéciale M ;\nVéhicules agricoles spéciaux, tracteurs agricoles ainsi que tracteurs véhicules industriels max 40 km/h si effectué cours reconnu OFROU"
+    },
+    {
+      "id": "q014",
+      "q": "Que peut-on conduire en trafic interne avec le permis de catégorie B ?",
+      "a": "Voitures automobiles lourdes dont le poids total dépasse 3’500 kg sans excéder 4’250 kg, avec au maximum 8 passagers, si elles disposent d’une propulsion non polluante et que le dépassement de poids est uniquement dû à ce système ; le tractage d’une remorque ≤ 750 kg est autorisé."
+    },
+    {
+      "id": "q015",
+      "q": "Avec quel véhicule n’est-on pas tenu d’avoir un permis de conduire ?",
+      "a": "Monoaxes, voitures à bras à moteur, voitures automobiles de travail utilisées sur des chantiers délimités où la circulation n’est toutefois pas complètement exclue, les cyclomoteur léger, les gyropode électrique et les fauteuil roulant motorisé max. 20 km/h."
+    },
+    {
+      "id": "q016",
+      "q": "Quelles catégories ne nécessitent pas de permis d’élève conducteur ?",
+      "a": "Les catégories spéciales G et M."
+    },
+    {
+      "id": "q017",
+      "q": "Quel est l’âge minimal pour conduire des véhicules des catégories spéciales G et M ?",
+      "a": "14 ans."
+    },
+    {
+      "id": "q018",
+      "q": "Quel est l’âge minimal pour la catégorie spéciale F ?",
+      "a": "16 ans (véhicules ≤ 45 km/h), 18 ans (autres)."
+    },
+    {
+      "id": "q019",
+      "q": "Quel est l’âge minimal pour la sous-catégorie A1 ?",
+      "a": "15 ans (motocycles légers), 16 ans (autres)."
+    },
+    {
+      "id": "q020",
+      "q": "Quel est l’âge minimal pour les catégories B et BE ?",
+      "a": "17 ans."
+    },
+    {
+      "id": "q021",
+      "q": "Quel est l’âge minimal pour les catégories A, C, CE et sous-catégories B1, C1, C1E ?",
+      "a": "18 ans."
+    },
+    {
+      "id": "q022",
+      "q": "Quel est l’âge minimal pour les catégories D, DE et sous-catégories D1, D1E ?",
+      "a": "21 ans."
+    },
+    {
+      "id": "q023",
+      "q": "Quel est l’âge minimal pour les véhicules ne nécessitant pas de permis ?",
+      "a": "16 ans."
+    },
+    {
+      "id": "q024",
+      "q": "Quels sont les avantages des personnes qui suivent une formation professionnelle conducteur lourds CFC ou mécanicien/mécatronicien utilitaire CFC ?",
+      "a": "Permis élève C/CE dès 17 ans ; examen possible 6 mois avant 18 ans ; permis délivrer dès 18 ans."
+    },
+    {
+      "id": "q025",
+      "q": "Quand un contrôle de la vue est-il obligatoire ?",
+      "a": "Lors d’une demande de permis d’élève conducteur (catégories A, B, A1, B1, F) et lors d’une demande de permis de conduire (catégories M et G). (s’ils ne possèdent pas déjà un permis)"
+    },
+    {
+      "id": "q026",
+      "q": "À quelles limitations est soumis le permis d’élève conducteur de la catégorie A35 et quelles sont les exceptions ?",
+      "a": "Limité aux motocycles ≤ 35 kW et ≤ 0,2 kW/kg ; Exceptions pour les apprentis mécaniciens moto CFC formés par un moniteur A, la police et les experts de la circulation en formation."
+    },
+    {
+      "id": "q027",
+      "q": "Quelle est la durée de validité du permis d’élève conducteur ?",
+      "a": "4 mois (A, A1), 12 mois (B1, F), 24 mois (autres) ; prolongation de 12 mois pour A et A1 si la formation pratique de base a été effectuée."
+    },
+    {
+      "id": "q028",
+      "q": "Quelles catégories permettent de faire des courses d’apprentissage sans être accompagné ?",
+      "a": "A, A1, B1 et F, et BE, CE, C1E, D1, D1E si l’on possède le permis du véhicule tracteur."
+    },
+    {
+      "id": "q029",
+      "q": "Dans quels cas faut-il suivre un cours de théorie de la circulation ?",
+      "a": "Pour obtenir le permis des catégories A, B ou des sous-catégories A1 et B1."
+    },
+    {
+      "id": "q030",
+      "q": "Quelle condition s’applique aux candidats au permis B ayant obtenu le permis d’élève avant 20 ans ?",
+      "a": "Ils doivent posséder le permis d’élève conducteur depuis au moins un an pour être admis à l’examen pratique. Exceptions pour le conducteurs lourds et mécanicien utilitaire CFC"
+    },
+    {
+      "id": "q031",
+      "q": "Pour quelles catégories le permis est-il délivré à l’essai ?",
+      "a": "Pour les catégories A et B ; toutes les autres catégories et sous-catégories sont limitées jusqu’à l’échéance de la période d’essai."
+    },
+    {
+      "id": "q032",
+      "q": "Qui est soumis au contrôle médical périodique et à quelle fréquence ?",
+      "a": "Les titulaires des catégories C, D, C1, D1, les conducteurs professionnels et les experts de la circulation : tous les 5 ans, puis tous les 3 ans après 50 ans\nA partir de l’âge 75 ans : tous les 2 ans ;"
+    },
+    {
+      "id": "q033",
+      "q": "Qui est tenu d’obtenir un permis de conduire suisse ?",
+      "a": "Les conducteurs résidant en Suisse depuis plus de 12 mois sans séjourner plus de 3 mois à l’étranger ; ainsi que les titulaires d’un permis hors UE/AELE qui conduisent professionnellement en Suisse des véhicules nécessitant C/D (ou C1/D1), sauf exceptions forains."
+    },
+    {
+      "id": "q034",
+      "q": "Dans quels cas peut-on utiliser des plaques professionnelles ?",
+      "a": "Pour dépannage et remorquage, courses de transfert ou d’essai (commerce, réparation, transformation), essais de véhicules neufs (constructeurs/importateurs), examens par des experts, et présentation ou circulation lors des contrôles officiels."
+    },
+    {
+      "id": "q035",
+      "q": "Quelles sont les différentes sortes de plaques d’immatriculation ?",
+      "a": "Blanc (voitures, motocycles, remorques)\nbleu clair (véhicules de travail)\nbrun clair (véhicules spéciaux)\nvert clair (agricoles et forestiers)\njaune (motocycles légers et quadricycles légers)\nnoir avec chiffres blancs (armée)\nBlanche avec des signes spéciaux U pour professionnelles, CD/CC/AT pour diplomatiques, plaques provisoires)."
+    },
+    {
+      "id": "q036",
+      "q": "Quels sont les genres de permis de circulation ?",
+      "a": "Permis normal, provisoire, à court terme, collectif (entreprises automobiles) et permis pour véhicules de remplacement."
+    },
+    {
+      "id": "q037",
+      "q": "Permis à court terme, quel est la durée max. ?",
+      "a": "Les permis à court terme sont établis pour une durée de 24, 48, 72 ou 96 heures"
+    },
+    {
+      "id": "q038",
+      "q": "À quelles conditions peut-on utiliser un véhicule de remplacement avec les mêmes plaques ?",
+      "a": "Avec une autorisation écrite ; si le véhicule initial est inutilisable (panne, réparation, etc.) et que le véhicule de remplacement est en parfait état de fonctionnement."
+    },
+    {
+      "id": "q039",
+      "q": "Quels véhicules peuvent bénéficier de plaque Z ?",
+      "a": "Les véhicules non dédouanés ne peuvent être immatriculés que provisoirement. Ils reçoivent alors des plaques spécifiques dites « plaques Z ». Une autorisation écrite des autorités douanières suisses est obligatoire (formulaire 15.30 ou 15.40).\nLe véhicule doit être expertisé avant l'immatriculation provisoire."
+    },
+    {
+      "id": "q040",
+      "q": "Quelle est la durée maximale d’une autorisation pour un véhicule de remplacement ?",
+      "a": "30 jours"
+    },
+    {
+      "id": "q041",
+      "q": "Qui délivre le permis de circulation et sous quelles conditions ?",
+      "a": "Le canton et a besoin de l’attestation d’assurance et des documents requis pour :\nvéhicule neuf ou importés le rapport d’expertise (13.20 A) avec formalités douanières si nécessaire.\nVéhicule usagés l’ancien permis de circulation annulé"
+    }
+  ]
+}

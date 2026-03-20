@@ -1,0 +1,146 @@
+{
+  "id": "mesures-administratives",
+  "name": "Mesures administratives",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "Citez 4 critères permettant aux mesures administratives de fixer la durée d’un retrait ?",
+      "a": "l’atteinte à la sécurité routière\nla gravité de la faute,\nles antécédents en tant que conducteur ainsi que\nla nécessité professionnelle de conduire un véhicule automobile."
+    },
+    {
+      "id": "q002",
+      "q": "Dans quel domaine une infraction est généralement poursuivie d’office ?",
+      "a": "LCR"
+    },
+    {
+      "id": "q003",
+      "q": "quelles sont les infractions sans suite administrative ?",
+      "a": "amendes d’ordre (OAO)"
+    },
+    {
+      "id": "q004",
+      "q": "pouvez-vous donner des exemples d’amendes d’ordres ?",
+      "a": "• conduite sans la ceinture de sécurité (60 Fr.)\n• circuler sur une voie réservée aux bus (60 Fr.)\n• ne pas être porteur du permis de conduire (20 Fr.)"
+    },
+    {
+      "id": "q005",
+      "q": "qui est compétent pour les amendes d’ordre ?",
+      "a": "la police"
+    },
+    {
+      "id": "q006",
+      "q": "Quels est le champ d’application de la LCR ?",
+      "a": "la circulation des véhicules sur la voie publiques (tous les usagers de la route)\nla responsabilité civile des véhicules"
+    },
+    {
+      "id": "q007",
+      "q": "Quelles sont les 3 types d’infractions connues en droit pénal et leurs conséquences ?",
+      "a": "contravention (amende)\ndélit (peine pécuniaire ou ppl max 3ans)\ncrime (ppl plus de 3 ans)"
+    },
+    {
+      "id": "q008",
+      "q": "Quelle est la durée et le montant max d’une peine pécuniaire ?",
+      "a": "max 180 jours-amende / max 3'000 CHF / jour"
+    },
+    {
+      "id": "q009",
+      "q": "Quelle est la différence entre un éthylotest et éthylomètre ?",
+      "a": "Éthylotest = indication (dépistage)\nÉthylomètre = preuve légale (mesure précise)"
+    },
+    {
+      "id": "q010",
+      "q": "Taux limite alcool dans le sang pour être autorisé à conduire ?",
+      "a": "0.5 ‰ sang / 0.25 mg/l air expiré\n0.1‰ pour :\nTransport professionnel de personnes (bus, taxis, transport rémunéré)\nVéhicules lourds plus de 3,5 t (camions, tracteurs à sellette)\nTransport de marchandises dangereuses ADR\nMoniteurs de conduite pendant leur activité\nCourses d’apprentissage / exercice\nAccompagnants doivent aussi être à 0.1 ‰"
+    },
+    {
+      "id": "q011",
+      "q": "Retrait admonestation, quelles sont les critères pour fixer la durée ?",
+      "a": "Violations des règles de la circulation routière (légère, grave)\nMise en danger (légère, grave)\nAntécédents"
+    },
+    {
+      "id": "q012",
+      "q": "Quel est la différence entre aptitudes et capacités et qualifications ?",
+      "a": "Les aptitudes est celui qui a les disposition stable et durables dans le temps (Age, état physique et psychique.)\nLes capacité est en état de, à court terme (fatigue, alcool, drogue, médicament, chimio.)\nLes qualifications sont de connaitre les règles de la circulation routière et d’être capable de conduire en toute sécurité"
+    },
+    {
+      "id": "q013",
+      "q": "Quelles sont les aptitudes nécessaires à la conduite ?",
+      "a": "Âge minimal atteint\nCapacités physiques et psychiques suffisantes\nPas de dépendance (alcool, drogues, etc.)\nComportement correct (respect des règles et des autres)\nAvoir les qualifications (connaitre les règles et conduire en sécurité)"
+    },
+    {
+      "id": "q014",
+      "q": "En droit administratif, quel sont les types de retrait ?",
+      "a": "Retrait d admonestation (punition)\nretrait de sécurité (inapte à la conduite)"
+    },
+    {
+      "id": "q015",
+      "q": "Le délit de chauffard est classé dans quelle catégorie d’infraction ?",
+      "a": "Graves"
+    },
+    {
+      "id": "q016",
+      "q": "Que risque-t-on lors d’une violation grave des règles de la circulation ?",
+      "a": "Administratif : Retrait 3 mois minimum\nPénal : PPL de max trois ans ou peine pécuniaire"
+    },
+    {
+      "id": "q017",
+      "q": "Qu’est-ce qu’un délit de chauffard (art. 90 al. 3 LCR) ?",
+      "a": "Celui qui, par une violation intentionnelle des règles fondamentales de la circulation, accepte de courir un grand risque d’accident pouvant entraîner de graves blessures ou la mort, notamment en :\n• commettant des excès de vitesse particulièrement importants\n• effectuant des dépassements téméraires\n• participant à des courses de vitesse illicites"
+    },
+    {
+      "id": "q018",
+      "q": "Quelles conditions pour une infraction légère ?",
+      "a": "Lorsque les conditions cumulatives suivantes sont remplies :\nviolation légère d’une règle de circulation\nmise en danger légère\nivresse non qualifiée sans autre infraction (plus de 0.5 ‰ ou 0.25 mg/l dans l’air expiré)\nenfreint l’interdiction de conduire sous l’influence de l‘alcool sans autre infraction aux règles de la circulation routière\n(plus de 0.1 ‰ (ou 0.05 mg/l dans l’air expiré)"
+    },
+    {
+      "id": "q019",
+      "q": "Quelles sont les conséquences d’une infraction légère ?",
+      "a": "avertissement, si aucun antécédent durant les 2 années précédentes\nretrait du permis pour 1 mois au moins, si antécédent durant les 2 années précédentes"
+    },
+    {
+      "id": "q020",
+      "q": "Quelles sont les conditions d’une infraction grave ?",
+      "a": "Lorsque les 2 conditions cumulatives suivantes sont remplies :\n• violation grave des règles de circulation\n• mise en danger grave (ou prise de ce risque)"
+    },
+    {
+      "id": "q021",
+      "q": "Quels sont les cas d’infraction grave définis par la loi ?",
+      "a": "• ébriété avec taux qualifié (plus de 0.8 ‰ dans le sang ou 0.4 mg/l dans l’air expiré)\n• conduite sous incapacité (drogues, médicaments)\n• dérobade ou opposition à une prise de sang\n• fuite après avoir blessé ou tué une personne\n• conduite malgré un retrait du permis"
+    },
+    {
+      "id": "q022",
+      "q": "Quelles sont les conséquences d’une infraction grave ?",
+      "a": "sans antécédent\n• retrait du permis de 3 mois au moins (minimum légal)\navec antécédent(s)\n• retrait du permis de 6 à 12 mois au moins\n• retrait pour une durée indéterminée (minimum 2 ans)\n• retrait définitif (minimum 5 ans)"
+    },
+    {
+      "id": "q023",
+      "q": "Quelles sont les 3 types d’infractions ?",
+      "a": "Légère\nMoyennement grave\ngrave"
+    },
+    {
+      "id": "q024",
+      "q": "Qu’est-ce qu’un retrait préventif ?",
+      "a": "lorsqu’il existe des doutes sérieux quant à l’aptitude"
+    },
+    {
+      "id": "q025",
+      "q": "Quels sont les différentes possibilités qui peuvent créer le doute sur l’aptitude ?",
+      "a": "taux d’alcool dans le sang de 1.6 ‰ ou plus, ou dans l’haleine 0.8 mg/l d’air\nemprise de stupéfiants qui altère fortement la conduite\ninfraction aux règles avec manque d’égard aux autres usagés\nauto déclaration\ncommunication de la police, d’un office AI, d’un particulier ou d’un médecin\nrapport d’accident"
+    },
+    {
+      "id": "q026",
+      "q": "Quand un excès de vitesse est-il considéré comme un délit de chauffard (art. 90 al. 4 LCR) ?",
+      "a": "lorsque la vitesse maximale autorisée est dépassée :\n• d’au moins 40 km/h si la limite est de 30 km/h\n• d’au moins 50 km/h si la limite est de 50 km/h\n• d’au moins 60 km/h si la limite est de 80 km/h\n• d’au moins 80 km/h si la limite est supérieure à 80 km/h"
+    },
+    {
+      "id": "q027",
+      "q": "Quels sont les seuils d’incapacité en matière de consommation d’alcool ?",
+      "a": "Taux d’alcoolémie non qualifié :\n0.25 à 0.39 mg/l ou 0.50 à 0.79 pour mille\ninfraction légère\nTaux d’alcoolémie qualifié :\ndès 0.4 mg/l ou 0.8 pour mille\ninfraction grave"
+    },
+    {
+      "id": "q028",
+      "q": "En matière de drogues, quels sont les seuils d’incapacité ?",
+      "a": "Valeur indicative de l’OFROU :\n• THC 1.5 µg/L\n• morphine libre : 15µg/l\n• cocaïne : 15 µg/L"
+    }
+  ]
+}

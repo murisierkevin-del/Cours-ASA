@@ -1,0 +1,86 @@
+{
+  "id": "cas-mesures-administratives",
+  "name": "Cas de mesures administratives",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "La police contrôle un motocycliste et l’éthylomètre révèle un taux de 0.39 mg/l. A quelle mesure doit-il s’attendre ?",
+      "a": "ébriété non qualifiée, infraction légère, sans antécédent : avertissement\nContraventions\nSoit un préfet, soit un procureur ou une autorité administrative ayant des pouvoirs en matière contraventionnelle comme en Valais, au Tessin et à Schaffhouse la fixent dans une ordonnance pénale."
+    },
+    {
+      "id": "q002",
+      "q": "Le même motocycliste se fait à nouveau contrôler 6 mois plus tard avec un taux de 0.29 mg/l, à quelle mesure doit-il s’attendre ?",
+      "a": "0.29 mg/l = L\nL sur L dans les deux ans :\n1 mois de retrait"
+    },
+    {
+      "id": "q003",
+      "q": "Quelle réponse apportez-vous s’il a commis un dépassement de vitesse de 10 km/h en localité, sans alcool, avec un antécédent d’infraction légère ?",
+      "a": "10 km/h en localité = AO et infraction légère avant :\naucune sanction administrative.\nLes amendes d’ordre sont anonymes.\nSi elles sont payées dans les délais, on ne trouve aucune trace dans un quelconque casier judiciaire.\nEn revanche, si elles ne sont pas payées, en principe elles vont tomber dans la compétence des autorités en charge des contraventions qui vont prononcer une ordonnance pénale."
+    },
+    {
+      "id": "q004",
+      "q": "Un automobiliste commet un dépassement net de la vitesse autorisé de 25 km/h en localité, à quelle mesure doit-il s’attendre ?",
+      "a": "Infraction grave :\nminimum 3 mois de retrait\nLe 1er août 2024, un conducteur est pris dans un contrôle radar sur l’autoroute. Le dépassement net est de 37km. En septembre 2020, le permis de conduire lui avait été retiré pour une durée d’un mois (infraction moyennement grave commise le 15 mai 2020)."
+    },
+    {
+      "id": "q005",
+      "q": "La mesure a fini d’être exécutée le 20 octobre 2020. A quelle mesure doit s’attendre l’intéressé pour l’infraction commise le 1er août 2024 ?",
+      "a": "Infraction d’août 24 :\ninfraction grave sur MG commise dans les 5 ans = six mois de retrait"
+    },
+    {
+      "id": "q006",
+      "q": "Un conducteur commet le 20 avril 2024 une infraction grave (dépassement net de 30 km/h en localité). Il présente l’antécédent suivant : Du 01.03.2021 au 30.05.2021 : 4 mois de retrait de permis en raison d’une infraction Grave. Quelle mesure administrative ?",
+      "a": "Grave sur Grave dans les 5 ans :\n12 mois de retrait"
+    },
+    {
+      "id": "q007",
+      "q": "Un conducteur a conduit un véhicule en état d’ébriété qualifiée et s’est vu retirer son permis de conduire pour une durée de 3 mois. Durant la période où il purge la sanction, il conduit malgré tout son véhicule et fait l’objet d’un contrôle. Mesure ?",
+      "a": "Conduite sous le coup du retrait = grave\n12 mois"
+    },
+    {
+      "id": "q008",
+      "q": "Un conducteur vient d’exécuter un retrait de 3 mois pour excès de vitesse début 2025. Six mois plus tard, il dépasse la vitesse autorisée de 27 km/h, hors localité et se fait contrôler par la police. Quelle mesure ?",
+      "a": "3 mois = grave\n27 hors localité = MG\nMG sur G dans les 2 ans :\n4 mois"
+    },
+    {
+      "id": "q009",
+      "q": "Antoine est âgé de 18 ans révolus, il conduit le 31.08.2025 un véhicule automobile alors qu’il n’a aucun permis de conduire. Quelle mesure ?",
+      "a": "Refus de délivrance pour une durée de 6 mois"
+    },
+    {
+      "id": "q010",
+      "q": "La police saisit le permis de conduire d’une personne en raison de sa conduite en état d’ébriété qualifiée. Trois jours plus tard, il conduit sans être porteur du permis de conduire. La procédure administrative n’a pas encore été ouverte. Qu’en pensez-vous ?",
+      "a": "Conduite sous retrait du permis de conduire.\nLa police lui a signifié l’interdiction de conduire au moment de la saisie du permis de conduire."
+    },
+    {
+      "id": "q011",
+      "q": "lundi 11 novembre, Pascal remet son permis de conduire dans un office de poste afin de l’envoyer à l’autorité administrative. Malgré cela, il prend le volant pour se rendre à son travail et tombe dans un contrôle de police. Il a immédiatement admis ne plus être en possession de son permis, car il l’a envoyé à l’autorité administrative. Mesure ?",
+      "a": "Conduite sous retrait.\nEn effet, la date du sceau postal va marquer le début du retrait.\nL’autorité administrative va prendre cette date pour calculer la durée de retrait qu’elle va reporter dans admas."
+    },
+    {
+      "id": "q012",
+      "q": "Le 9 novembre 2025, Jeanne circule au volant de son véhicule sur la route cantonale. Elle percute avec la roue avant gauche le terre-plein central en béton. Les 4 airbags ont été déployés. Le véhicule était immobilisé sans possibilité de bouger. La police a été appelée et a fait souffler la conductrice à l’éthylomètre qui a révélé un taux de 0.81 mg/l. Que pensez-vous qu’il se soit passé ?",
+      "a": "La police a saisi le permis de conduire et lui a remis un formulaire lui signifiant une interdiction de conduire des véhicules à moteur.\nLe dossier avec le permis de conduire ont été transmis le lendemain au Service de la circulation qui a prononcé un retrait préventif du permis de conduire.\nJeanne devra alors prouver son aptitude médicale à la conduite.\nEn effet, compte tenu de son taux élevé d’alcool (à partir de 1.6 pour mille), la loi considère qu’elle est inapte à la conduite.\nAu bout de six mois en moyenne la personne se rend auprès d’un médecin de niveau 4 pour y subir une expertise médicale.\nCette dernière pourra conclure :\n• Apte sans condition : la personne récupère le permis\n• Apte avec conditions de suivi médical : l’autorité peut exiger que la personne continue à prouver son abstinence de consommation d’alcool tout en lui restituant le droit de conduire\n• Inapte à la conduite : l’autorité prononce un retrait de sécurité\nL’autorité doit toujours informer l’administré des conditions qui lui permettront de récupérer le droit de conduire.\nIdem pour la drogue ou les médicaments."
+    },
+    {
+      "id": "q013",
+      "q": "Le 05.03.2025, à Villeneuve, en obliquant à gauche, en raison de son inattention à la circulation, Martine n'a pas accordé la priorité à un motocycle circulant normalement en sens inverse.Le motard chuta lourdement au sol et sa moto percuta de son avant le pare-chocs avant de son véhicule.Qualification de l’infraction, mesure ?",
+      "a": "Infraction grave\nAu pénal :\nlésions corporelles graves par négligence et violation grave des règles de la circulation routière."
+    },
+    {
+      "id": "q014",
+      "q": "Martin n’a pas accordé la priorité à une piétonne qui traversait la chaussée sur un passage pour piétons. La visibilité était bonne, le temps était sec et il faisait jour. Qualification de l’infraction, mesure ?",
+      "a": "Infraction grave\nLe 22.07.2025, à Vevey-Autoroute A9/VD, Jules n'a pas voué toute son attention à la circulation.\nDans une longue courbe à droite, il a laissé dévier son véhicule sur la gauche jusqu'à entrer en collision avec la glissière centrale de l'autoroute."
+    },
+    {
+      "id": "q015",
+      "q": "Qualification de l’infraction, mesure ?",
+      "a": "Infraction moyennement grave ou grave\nJim est domicilié en France et possède un permis français.\nLe 15 août 2025, il conduit en Suisse et se fait contrôler avec un taux d’alcool de 0.41 mg/l."
+    },
+    {
+      "id": "q016",
+      "q": "Mesure ?",
+      "a": "Interdiction de faire usage du permis de conduire étranger de 3 mois."
+    }
+  ]
+}

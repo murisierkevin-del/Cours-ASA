@@ -1,0 +1,91 @@
+{
+  "id": "classification-vehicules",
+  "name": "Classification véhicules",
+  "cards": [
+    {
+      "id": "q001",
+      "q": "Qu’est-ce qu’un véhicule de catégorie M1 ?",
+      "a": "Véhicule à moteur comportant au maximum 8 places assises en plus de celle du conducteur. (pas de limite de poids)"
+    },
+    {
+      "id": "q002",
+      "q": "Qu’est-ce qu’un véhicule de catégorie M2 ?",
+      "a": "Véhicule à moteur comportant plus de 8 places assises en plus de celle du conducteur et ayant une masse maximale n’excédant pas 5 tonnes."
+    },
+    {
+      "id": "q003",
+      "q": "Qu’est-ce qu’un véhicule de catégorie M3 ?",
+      "a": "Véhicule à moteur comportant plus de 8 places assises en plus de celle du conducteur et ayant une masse maximale supérieure à 5 tonnes."
+    },
+    {
+      "id": "q004",
+      "q": "Qu’est-ce qu’un véhicule de catégorie N1 ?",
+      "a": "Véhicule à moteur ayant une masse maximale n’excédant pas 3,5 tonnes."
+    },
+    {
+      "id": "q005",
+      "q": "Qu’est-ce qu’un véhicule de catégorie N2 ?",
+      "a": "Véhicule à moteur ayant une masse maximale supérieure à 3,5 tonnes sans excéder 12 tonnes."
+    },
+    {
+      "id": "q006",
+      "q": "Qu’est-ce qu’un véhicule de catégorie N3 ?",
+      "a": "Véhicule à moteur ayant une masse maximale supérieure à 12 tonnes."
+    },
+    {
+      "id": "q007",
+      "q": "Qu’est-ce qu’une remorque de catégorie O1 ?",
+      "a": "Remorque ayant une masse maximale n’excédant pas 0,75 tonne."
+    },
+    {
+      "id": "q008",
+      "q": "Qu’est-ce qu’une remorque de catégorie O2 ?",
+      "a": "Remorque ayant une masse maximale supérieure à 0,75 tonne sans excéder 3,5 tonnes."
+    },
+    {
+      "id": "q009",
+      "q": "Qu’est-ce qu’une remorque de catégorie O3 ?",
+      "a": "Remorque ayant une masse maximale supérieure à 3,5 tonnes sans excéder 10 tonnes."
+    },
+    {
+      "id": "q010",
+      "q": "Qu’est-ce qu’une remorque de catégorie O4 ?",
+      "a": "Remorque ayant une masse maximale supérieure à 10 tonnes."
+    },
+    {
+      "id": "q011",
+      "q": "Qu’est-ce qu’une voiture de tourisme ?",
+      "a": "Voiture automobile légère affectée au transport de personnes, comptant au maximum 9 places assises, conducteur compris (catégorie M1 jusqu’à 3,50 t)."
+    },
+    {
+      "id": "q012",
+      "q": "Qu’est-ce qu’une voiture de tourisme lourde ?",
+      "a": "Voiture automobile lourde affectée au transport de personnes, comptant au maximum 9 places assises, conducteur compris (catégorie M1 à partir de 3,50 t)."
+    },
+    {
+      "id": "q013",
+      "q": "Qu’est-ce qu’un minibus ?",
+      "a": "Voiture automobile légère affectée au transport de personnes, comptant plus de 9 places assises, conducteur compris (catégorie M2 jusqu’à 3,50 t)."
+    },
+    {
+      "id": "q014",
+      "q": "Qu’est-ce qu’un autocar ?",
+      "a": "Voiture automobile lourde affectée au transport de personnes, comptant plus de 9 places assises, conducteur compris (catégorie M2 de 3,50 t a 5T et M3 plus de 5T)."
+    },
+    {
+      "id": "q015",
+      "q": "Qu’est-ce qu’une voiture de livraison ?",
+      "a": "Voiture automobile légère affectée au transport de choses (catégorie N1), pouvant comporter des sièges supplémentaires rabattables pour un transport occasionnel de personnes, sans dépasser 9 places assises, conducteur compris."
+    },
+    {
+      "id": "q016",
+      "q": "Qu’est-ce qu’un camion ?",
+      "a": "Voiture automobile lourde affectée au transport de choses (catégorie N2 3,5T a 12T et N3 plus de 12T), comportant au maximum 9 places assises, conducteur compris."
+    },
+    {
+      "id": "q017",
+      "q": "Qu’elle est la définition de voiture automobile ?",
+      "a": "Tout véhicule pourvu d’un propre dispositif de propulsion lui permettant de circuler sur terre sans devoir suivre une voie ferrée."
+    }
+  ]
+}
