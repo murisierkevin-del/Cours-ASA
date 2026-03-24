@@ -155,7 +155,7 @@
     {
       "id": "q031",
       "q": "Qu’est-ce qu’un dispositif d’attelage ne doit pas masquer ?",
-      "a": "Il ne doit pas masquer la plaque de contrôle."
+      "a": "Il ne doit pas masquer la plaque de contrôle ou un dispositif d'éclairage."
     },
     {
       "id": "q032",
@@ -255,12 +255,12 @@
     {
       "id": "q051",
       "q": "Quels sont les voitures automobiles qui doivent être équipés d’un dispositif de lavage du pare-brise ?",
-      "a": "Les voitures automobiles légères et, à partir du 1.10.06, toutes les voitures automobiles avec une vitesse maximale supérieure à 45 km/h."
+      "a": "toutes les voitures automobiles avec une vitesse maximale supérieure à 45 km/h."
     },
     {
       "id": "q052",
       "q": "Quels sont les exigences légales pour un indicateur de vitesse ?",
-      "a": "Être lisible dans la zone de 40 km/h à 120 km/h\nÊtre éclairé\nAffichage jusqu’à la vitesse la plus élevée techniquement possible\nAffichage en km/h, en plus, les miles par heure sont autorisés\nLa vitesse de déplacement affichée ne doit jamais se situer au-dessous de la vitesse réelle dans la plage comprise entre 40 km/h et 120 km/h"
+      "a": "Être lisible dans la zone de 40 km/h à 120 km/h\nÊtre éclairé\nAffichage jusqu’à la vitesse la plus élevée techniquement possible\nAffichage en km/h, en plus, les miles par heure sont autorisés\nLa vitesse de déplacement affichée ne doit jamais se situer au-dessous de la vitesse réelle dans la plage comprise entre 40 km/h et 120 km/h et la tolérance pour M et N est : (vitesse radar:10)+6"
     },
     {
       "id": "q053",
