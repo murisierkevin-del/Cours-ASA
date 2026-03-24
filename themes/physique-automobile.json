@@ -9,8 +9,9 @@
     },
     {
       "id": "q002",
-      "q": "Qu’est-ce que l’acoustique ?",
-      "a": "C’est l’étude du son et de sa transmission"
+      "q": "Quels sont les système d'aides a la conduite obligatoire depuis 2024?",
+      "a": "Adaptation intelligente de la vitesse.\n Facilitation de l’installation d’un éthylomètre antidémarrage.\n Avertisseur de somnolence et de perte d’attention du conducteur. \n Avertisseur avancé de distraction du conducteur.\n Signal d’arrêt d’urgence.\n Détection en marche arrière.\n Enregistreur de données d’événement \n Les prescriptions spécifiques relatives aux véhicules des catégories M1 et N1 sont \n Système avancé de freinage d’urgence\n détection d’obstacles et de véhicules en mouvement
+et inclusion des piétons et des cyclistes\n Système de d’urgence de maintien de la trajectoire"
     },
     {
       "id": "q003",
